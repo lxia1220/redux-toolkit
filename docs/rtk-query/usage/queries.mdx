@@ -26,9 +26,9 @@ See [`useQuery`](../api/created-api/hooks.mdx#usequery) for the hook signature a
 
 ## Defining Query Endpoints
 
-Query endpoints are defined by returning an object inside the `endpoints` section of `createApi`, and defining the fields using the `builder.query()` method.
+Query endpoint는 `createApi`의 `endpoints` 섹션에서 `builder.query()` 메소드를 통해 정의합니다.
 
-Query endpoints should define either a `query` callback that constructs the URL (including any URL query params), or [a `queryFn` callback](./customizing-queries.mdx#customizing-queries-with-queryfn) that may do arbitrary async logic and return a result.
+Query endpoint는 URL (URL 쿼리 파라미터 포함)을 반환하는 `query` 콜백이나 임의의 비동기 로직을 수행하고 결과를 반환하는 [ `queryFn` callback]을 정의해야 합니다.
 
 If the `query` callback needs additional data to generate the URL, it should be written to take a single argument. If you need to pass in multiple parameters, pass them formatted as a single "options object".
 
@@ -148,15 +148,15 @@ The query hook returns an object containing properties such as the latest `data`
 - `isFetching` - When true, indicates that the query is currently fetching, but might have data from an earlier request. This will be `true` for both the first request fired off, as well as subsequent requests.
 - `isSuccess` - When true, indicates that the query has data from a successful request.
 - `isError` - When true, indicates that the query is in an `error` state.
-- `refetch` - A function to force refetch the query
+- `refetch` - query가 강제로 다시 데이터를 가져오게 하는 함수입니다.
 
 대부분의 경우, `data`와 `isLoading` 또는 `isFetching`를 읽어들여 UI를 렌더링할 것입니다.
 
 ### Query Hook Usage Example
 
-Here is an example of a `PostDetail` component:
+다음은 `PostDetail` 컴포넌트 예시입니다:
 
-```tsx title="Example"
+```tsx title="예시"
 export const PostDetail = ({ id }: { id: string }) => {
   const {
     data: post,
@@ -181,9 +181,9 @@ export const PostDetail = ({ id }: { id: string }) => {
 
 The way that this component is setup would have some nice traits:
 
-1. It only shows 'Loading...' on the **initial load**
-   - **Initial load** is defined as a query that is pending and does not have data in the cache
-2. When the request is re-triggered by the polling interval, it will add '...refetching' to the post name
+1. **초기 로드** 시에는 'Loading...' 만 표시합니다
+   - **초기 로드** 는 query가 pending 상태이며 캐시에 데이터가 없는 경우를 나타냅니다
+2. polling interval에 의해 재요청 발생 시, post name에 '...refetching' 이 추가됩니다
 3. If a user closed this `PostDetail`, but then re-opened it within [the allowed time](../api/createApi#keepunuseddatafor), they would immediately be served a cached result and polling would resume with the previous behavior.
 
 ### Query Loading State
@@ -264,7 +264,7 @@ function PostsList({ userName }: { userName: string }) {
 
 ### Query Cache Keys
 
-When you perform a query, RTK Query automatically serializes the request parameters and creates an internal `queryCacheKey` for the request. Any future request that produces the same `queryCacheKey` will be de-duped against the original, and will share updates if a `refetch` is trigged on the query from any subscribed component.
+Query를 수행할 때 RTK Query는 요청 파라미터를 자동으로 직렬화하고 요청에 대한 `queryCacheKey` 를 내부적으로 생성합니다. Any future request that produces the same `queryCacheKey` will be de-duped against the original, and will share updates if a `refetch` is trigged on the query from any subscribed component.
 
 ### Selecting data from a query result
 
@@ -345,16 +345,16 @@ const { status, data, error, refetch } = dispatch(
 
 ## Example: Observing caching behavior
 
-이 예는 중복 요청 제거 및 캐싱 동작을 보여줍니다:
+이 예제에서는 중복 요청 제거 및 캐싱 동작을 보여줍니다:
 
 1. 첫 'bulbasaur' 유형의 `Pokemon` component 가 추가되고, 'bulbasaur' 데이터를 요청을 통해 가져옵니다.
-2. 그 뒤, 다른 'bulbasaur' 유형의 `Pokemon` component가 추가 됩니다.
+2. 그 뒤, 다른 'bulbasaur' 유형의 `Pokemon` 컴포넌트가 추가 됩니다.
    - 이 경우 'Loading...' 이 표시되지 않고 네트워크 요청이 발생하지 않는 것을 볼 수 있나요? 여기서 캐시가 사용됩니다.
-3. 잠시 후, 'pikachu' 유형의 `Pokemon` component 가 추가되고, 'pikachu' 데이터를 요청을 통해 가져옵니다.
-4. 특정 포켓몬 유형의 'Refetch' 를 누를 경우, 한번의 요청으로 해당 포켓몬 유형의 모든 component가 업데이트 됩니다.
+3. 잠시 후, 'pikachu' 유형의 `Pokemon` 컴포넌트 가 추가되고, 'pikachu' 데이터를 요청을 통해 가져옵니다.
+4. 특정 포켓몬 유형의 'Refetch' 를 누를 경우, 한번의 요청으로 해당 포켓몬 유형의 모든 컴포넌트가 업데이트 됩니다.
 
 :::note Try it out
-Click the 'Add bulbasaur' button. You'll observe the same behavior described above until you click the 'Refetch' button on one of the components.
+'Add bulbasaur' 버튼을 클릭하면 요소중 하나에서 'refetch' 버튼을 클릭하기 전까지 위에서 설명한 것과 동일한 동작을 볼 수 있습니다..
 :::
 
 <iframe
