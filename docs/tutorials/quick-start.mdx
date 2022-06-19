@@ -37,15 +37,15 @@ The [Redux+JS template for Create-React-App](https://github.com/reduxjs/cra-temp
 
 ## Usage Summary
 
-### Install Redux Toolkit and React-Redux
+### Redux Toolkit 과 React-Redux 설치하기
 
-Add the Redux Toolkit and React-Redux packages to your project:
+Redux Toolkit 과 React-Redux 패키지를 프로젝트에 추가합니다:
 
 ```sh
 npm install @reduxjs/toolkit react-redux
 ```
 
-### Create a Redux Store
+### Redux Store 생성하기
 
 Create a file named `src/app/store.js`. Import the `configureStore` API from Redux Toolkit. We'll start by creating an empty Redux store, and exporting it:
 
@@ -62,7 +62,7 @@ export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 ```
 
-This creates a Redux store, and also automatically configure the Redux DevTools extension so that you can inspect the store while developing.
+이것은 Redux store를 생성하며, 개발 중 store를 관측할 수 있도록 하는 Redux DevTools extension을 자동적으로 활성화시킵니다.
 
 ### Provide the Redux Store to React
 
@@ -103,7 +103,7 @@ ReactDOM.render(
 
 ### Create a Redux State Slice
 
-Add a new file named `src/features/counter/counterSlice.js`. In that file, import the `createSlice` API from Redux Toolkit.
+`src/features/counter/counterSlice.js` 이름의 파일을 생성합니다. In that file, import the `createSlice` API from Redux Toolkit.
 
 Creating a slice requires a string name to identify the slice, an initial state value, and one or more reducer functions to define how the state can be updated. Once a slice is created, we can export the generated Redux action creators and the reducer function for the whole slice.
 

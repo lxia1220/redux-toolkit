@@ -10,9 +10,9 @@ description: 'RTK Query > Usage > Prefetching: fetching before user interaction'
 
 # Prefetching
 
-The goal of prefetching is to make data fetch _before_ the user navigates to a page or attempts to load some known content.
+Prefetching의 목표는 사용자가 페이지를 탐색하거나 알려진 콘텐츠를 로드하려고 시도하기 _전에_ 데이터를 가져오는 것입니다.
 
-There are a handful of situations that you may want to do this, but some very common use cases are:
+이 작업을 수행할 수 있는 몇 가지 상황이 있지만 몇 가지 일반적인 사용 사례는 다음과 같습니다.:
 
 1. User hovers over a navigation element
 2. User hovers over a list element that is a link
@@ -21,7 +21,7 @@ There are a handful of situations that you may want to do this, but some very co
 
 ## Prefetching with React Hooks
 
-Similar to the [`useMutation`](./mutations) hook, the `usePrefetch` hook will not run automatically — it returns a "trigger function" that can be used to initiate the behavior.
+[`useMutation`](./mutations) hook과 유사하게, `usePrefetch` hook은 자동적으로 실행되지 않습니다 — 그것은 동작을 시작하는 데에 사용할 수 있는 "trigger function"을 반환합니다.
 
 It accepts two arguments: the first is the key of a query action that you [defined in your API service](../api/createApi#endpoints), and the second is an object of two optional parameters:
 

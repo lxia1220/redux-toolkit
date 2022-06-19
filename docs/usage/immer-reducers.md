@@ -13,28 +13,28 @@ Redux Toolkit's [`createReducer`](../api/createReducer.mdx) and [`createSlice`](
 
 Because Immer is itself an abstraction layer, it's important to understand why Redux Toolkit uses Immer, and how to use it correctly.
 
-## Immutability and Redux
+## Immutability과 Redux
 
-### Basics of Immutability
+### Immutability의 기초
 
-"Mutable" means "changeable". If something is "immutable", it can never be changed.
+"Mutable" 은 "변경가능한" 것을 의미합니다. 만약 무언가가 "immutable" 하다면, 그것은 변경될 수 없습니다.
 
-JavaScript objects and arrays are all mutable by default. If I create an object, I can change the contents of its fields. If I create an array, I can change the contents as well:
+JavaScript의 objects와 arrays는 기본적으로 모두 Mutable 합니다. 만약 내가 object를 만든다면, 나는 그것의 fields의 내용을 수정할 수 있습니다. 만약 내가 배열을 만든다면, 그것의 내용또한 수정할 수 있습니다.:
 
 ```js
 const obj = { a: 1, b: 2 }
-// still the same object outside, but the contents have changed
+// 외부에서 보기엔 여전히 동일한 object이나, 내용은 수정되었습니다.
 obj.b = 3
 
 const arr = ['a', 'b']
-// In the same way, we can change the contents of this array
+// 마찬가지로, 우리는 배열의 내용을 수정할 수 있습니다.
 arr.push('c')
 arr[1] = 'd'
 ```
 
-This is called _mutating_ the object or array. It's the same object or array reference in memory, but now the contents inside the object have changed.
+이것을 object 또는 array _mutating_ 이라 합니다. 메모리에서 object나 array의 reference는 동일하나, 내부의 내용이 변경되었습니다.
 
-**In order to update values immutably, your code must make _copies_ of existing objects/arrays, and then modify the copies**.
+**불변성을 유지하면서 값을 수정하기 위해서는 기존의 object/arrays의 _복사본_ 을 만든 뒤, 해당 값을 수정해야합니다.**
 
 We can do this by hand using JavaScript's array / object spread operators, as well as array methods that return new copies of the array instead of mutating the original array:
 
@@ -71,7 +71,7 @@ arr3.push('c')
 
 :::info Want to Know More?
 
-For more info on how immutability works in JavaScript, see:
+JavaScript에서의 불변성에 더 알고 싶다면, 다음을 참고하세요:
 
 - [A Visual Guide to References in JavaScript](https://daveceddia.com/javascript-references/)
 - [Immutability in React and Redux: The Complete Guide](https://daveceddia.com/react-redux-immutability-guide/)
@@ -80,7 +80,7 @@ For more info on how immutability works in JavaScript, see:
 
 ### Reducers and Immutable Updates
 
-One of the primary rules of Redux is that **our reducers are _never_ allowed to mutate the original / current state values!**
+Redux의 중요한 규칙 중 하나는 **우리의 reducers는 _절대로_ original / current state values를 수정해선 안됩니다!**
 
 :::warning
 
@@ -91,15 +91,15 @@ state.value = 123
 
 :::
 
-There are several reasons why you must not mutate state in Redux:
+Redux에서 state를 수정해선 안되는 몇가지 이유가 있습니다:
 
 - It causes bugs, such as the UI not updating properly to show the latest values
 - It makes it harder to understand why and how the state has been updated
-- It makes it harder to write tests
+- 그것은 테스트를 작성하기 더욱 어렵게 만듭니다.
 - It breaks the ability to use "time-travel debugging" correctly
 - It goes against the intended spirit and usage patterns for Redux
 
-So if we can't change the originals, how do we return an updated state?
+원본을 수정할 수 없다면, 어떻게 변경된 상태를 반환할 수 있나요?
 
 :::tip
 
@@ -143,9 +143,9 @@ However, if you're thinking that "writing immutable updates by hand this way loo
 
 Writing immutable update logic by hand _is_ hard, and **accidentally mutating state in reducers is the single most common mistake Redux users make**.
 
-## Immutable Updates with Immer
+## Immer를 통한 Immutable Updates
 
-[Immer](https://immerjs.github.io/immer/) is a library that simplifies the process of writing immutable update logic.
+[Immer](https://immerjs.github.io/immer/) 는 immutable update logic을 단순화 시켜주는 라이브러리 입니다.
 
 Immer provides a function called `produce`, which accepts two arguments: your original `state`, and a callback function. The callback function is given a "draft" version of that state, and inside the callback, it is safe to write code that mutates the draft value. Immer tracks all attempts to mutate the draft value and then replays those mutations using their immutable equivalents to create a safe, immutably updated result:
 
@@ -178,9 +178,9 @@ console.log(baseState[1] === nextState[1])
 // false - the second item was copied and updated
 ```
 
-### Redux Toolkit and Immer
+### Redux Toolkit 과 Immer
 
-Redux Toolkit's [`createReducer` API](../api/createReducer.mdx) uses Immer internally automatically. So, it's already safe to "mutate" state inside of any case reducer function that is passed to `createReducer`:
+Redux Toolkit의 [`createReducer` API](../api/createReducer.mdx) 는 내부에서 자동적으로 Immer을 사용합니다. So, it's already safe to "mutate" state inside of any case reducer function that is passed to `createReducer`:
 
 ```js
 const todosReducer = createReducer([], (builder) => {
@@ -273,7 +273,7 @@ const todosSlice = createSlice({
 })
 ```
 
-Note that **mutating state in an arrow function with an implicit return breaks this rule and causes an error!** This is because statements and function calls may return a value, and Immer sees both the attempted mutation and _and_ the new returned value and doesn't know which to use as the result. Some potential solutions are using the `void` keyword to skip having a return value, or using curly braces to give the arrow function a body and no return value:
+주의할 것은 **implicit return이 있는 arrow function에서 state를 수정할 경우 해당 규칙이 깨져 오류가 발생합니다!** This is because statements and function calls may return a value, and Immer sees both the attempted mutation and _and_ the new returned value and doesn't know which to use as the result. Some potential solutions are using the `void` keyword to skip having a return value, or using curly braces to give the arrow function a body and no return value:
 
 ```js
 const todosSlice = createSlice({
@@ -390,9 +390,9 @@ The correct output would look like this instead:
 
 Immer also provides [`original` and `isDraft` functions](https://immerjs.github.io/immer/original), which retrieves the original data without any updates applied and check to see if a given value is a Proxy-wrapped draft. As of RTK 1.5.1, both of those are re-exported from RTK as well.
 
-### Updating Nested Data
+### 중첩 데이터 업데이트
 
-Immer greatly simplifies updating nested data. Nested objects and arrays are also wrapped in Proxies and drafted, and it's safe to pull out a nested value into its own variable and then mutate it.
+Immer는 중첩 데이터 업데이트를 크게 단순화합니다. Nested objects and arrays are also wrapped in Proxies and drafted, and it's safe to pull out a nested value into its own variable and then mutate it.
 
 However, this still only applies to objects and arrays. If we pull out a primitive value into its own variable and try to update it, Immer has nothing to wrap and cannot track any updates:
 
@@ -462,15 +462,15 @@ To resolve this, you can tell the ESLint rule to ignore mutations to a parameter
 
 ```
 
-## Why Immer is Built In
+## Immer가 내장된 이유
 
 We've received a number of requests over time to make Immer an optional part of RTK's `createSlice` and `createReducer` APIs, rather than strictly required.
 
-Our answer is always the same: **Immer _is required_ in RTK, and that is not going to change**.
+우리의 대답은 항상 동일합니다: **Immer는 RTK에서 _필수적_ 이며, 그것은 변하지 않을 것입니다**.
 
 It's worth going over the reasons why we consider Immer to be a critical part of RTK and why we will not make it optional.
 
-### Benefits of Immer
+### Immer의 이점
 
 Immer has two primary benefits. First, **Immer drastically simplifies immutable update logic**. [Proper immutable updates are extremely verbose](https://redux.js.org/usage/structuring-reducers/immutable-update-patterns#updating-nested-objects). Those verbose operations are hard to read overall, and also obfuscate what the actual intent of the update statement is. Immer eliminates all the nested spreads and array slices. Not only is the code shorter and easier to read, it's much more clear what actual update is supposed to happen.
 
@@ -480,7 +480,7 @@ Additionally, RTK Query uses Immer's patch capabilities to enable [optimistic up
 
 ### Tradeoffs and Concerns
 
-Like any tool, using Immer does have tradeoffs, and users have expressed a number of concerns about using it.
+다른 tool들과 마찬가지로 Immer을 사용하는데에는 장단점이 있으며, 이에 사용자들은 사용에 많은 우려를 표명했습니다.
 
 Immer does add to the overall app bundle size. It's about 8K min, 3.3K min+gz (ref: [Immer docs: Installation](https://immerjs.github.io/immer/installation), [Bundle.js.org analysis](https://bundle.js.org/?q=immer&treeshake=[{default+as+produce+}])). However, that library bundle size starts to pay for itself by shrinking the amount of reducer logic in your app. Additionally, the benefits of more readable code and eliminating mutation bugs are worth the size.
 

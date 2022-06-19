@@ -10,11 +10,11 @@ description: 'RTK Query > Usage > Pagination: suggestions for handling paginated
 
 # Pagination
 
-RTK Query does not include any built-in pagination behavior. However, RTK Query does make it straightforward to integrate with a standard index-based pagination API. This is the most common form of pagination that you'll need to implement.
+RTK 쿼리에는 Pagination 기능이 포함되어 있지 않습니다. 그러나 RTK Query를 통해 표준 인덱스 기반 pagination API와 쉽게 통합할 수 있습니다. 이것은 구현해야 하는 가장 일반적인 pagination 형식입니다.
 
 ## Pagination Recipes
 
-### Setup an endpoint to accept a page `arg`
+### Endpoint에서 arg로 page를 받도록 설정합니다.
 
 ```ts title="src/app/services/posts.ts"
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'

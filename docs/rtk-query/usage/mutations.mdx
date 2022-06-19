@@ -12,11 +12,11 @@ description: 'RTK Query > Usage > Mutations: sending updates to the server'
 
 ## Overview
 
-Mutations are used to send data updates to the server and apply the changes to the local cache. Mutations can also invalidate cached data and force re-fetches.
+Mutations은 데이터 업데이트를 서버로 전송하고 변경 사항을 로컬 캐시에 적용하는 데 사용됩니다. Mutations은 캐시된 데이터를 무효화하고 강제로 다시 가져올 수도(force re-fetch) 있습니다.
 
 ## Defining Mutation Endpoints
 
-Mutation endpoints are defined by returning an object inside the `endpoints` section of `createApi`, and defining the fields using the `build.mutation()` method.
+Mutation endpoints는 `createApi`의 `endpoints` 섹션에 `build.mutation()`을 통해 필드를 정의할 수 있습니다.
 
 Mutation endpoints should define either a `query` callback that constructs the URL (including any URL query params), or [a `queryFn` callback](./customizing-queries.mdx#customizing-queries-with-queryfn) that may do arbitrary async logic and return a result. The `query` callback may also return an object containing the URL, the HTTP method to use and a request body.
 
@@ -79,7 +79,7 @@ const api = createApi({
 
 :::info
 
-The `onQueryStarted` method can be used for [optimistic updates](./manual-cache-updates.mdx#optimistic-updates)
+`onQueryStarted` 메소드는 [optimistic updates](./manual-cache-updates.mdx#optimistic-updates) 에 사용될 수 있습니다.
 
 :::
 

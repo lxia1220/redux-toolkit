@@ -12,7 +12,7 @@ description: 'RTK Query > Usage > Queries: fetching data from a server'
 
 ## Overview
 
-This is the most common use case for RTK Query. A query operation can be performed with any data fetching library of your choice, but the general recommendation is that you only use queries for requests that retrieve data. For anything that alters data on the server or will possibly invalidate the cache, you should use a [Mutation](./mutations).
+이것은 RTK 쿼리의 가장 일반적인 사용 사례입니다. A query operation can be performed with any data fetching library of your choice, but the general recommendation is that you only use queries for requests that retrieve data. For anything that alters data on the server or will possibly invalidate the cache, you should use a [Mutation](./mutations).
 
 By default, RTK Query ships with [`fetchBaseQuery`](../api/fetchBaseQuery), which is a lightweight [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) wrapper that automatically handles request headers and response parsing in a manner similar to common libraries like `axios`. See [Customizing Queries](./customizing-queries) if `fetchBaseQuery` does not handle your requirements.
 
@@ -100,7 +100,7 @@ Hooks are automatically generated based on the name of the `endpoint` in the ser
 
 ### Hook types
 
-There are 5 query-related hooks:
+query와 관련된 5가지 hooks이 있습니다:
 
 1. [`useQuery`](../api/created-api/hooks.mdx#usequery)
    - Composes `useQuerySubscription` and `useQueryState` and is the primary hook. Automatically triggers fetches of data from an endpoint, 'subscribes' the component to the cached data, and reads the request status and cached data from the Redux store.
@@ -117,7 +117,7 @@ In practice, the standard `useQuery`-based hooks such as `useGetPostQuery` will 
 
 ### Query Hook Options
 
-The query hooks expect two parameters: `(queryArg?, queryOptions?)`.
+Query hooks는 두 개의 매개변수를 입력받습니다: `(queryArg?, queryOptions?)`.
 
 The `queryArg` param will be passed through to the underlying `query` callback to generate the URL.
 
@@ -136,21 +136,21 @@ All `refetch`-related options will override the defaults you may have set in [cr
 
 :::
 
-### Frequently Used Query Hook Return Values
+### 자주 사용되는 Query Hook 반환 값
 
 The query hook returns an object containing properties such as the latest `data` for the query request, as well as status booleans for the current request lifecycle state. Below are some of the most frequently used properties. Refer to [`useQuery`](../api/created-api/hooks.mdx#usequery) for an extensive list of all returned properties.
 
 - `data` - The latest returned result regardless of hook arg, if present.
 - `currentData` - The latest returned result for the current hook arg, if present.
-- `error` - The error result if present.
-- `isUninitialized` - When true, indicates that the query has not started yet.
+- `error` - 오류 결과가 존재한다면 이를 반환합니다.
+- `isUninitialized` - True라면, Query가 아직 시작되지 않았음을 나타냅니다.
 - `isLoading` - When true, indicates that the query is currently loading for the first time, and has no data yet. This will be `true` for the first request fired off, but _not_ for subsequent requests.
 - `isFetching` - When true, indicates that the query is currently fetching, but might have data from an earlier request. This will be `true` for both the first request fired off, as well as subsequent requests.
 - `isSuccess` - When true, indicates that the query has data from a successful request.
 - `isError` - When true, indicates that the query is in an `error` state.
 - `refetch` - A function to force refetch the query
 
-In most cases, you will probably read `data` and either `isLoading` or `isFetching` in order to render your UI.
+대부분의 경우, `data`와 `isLoading` 또는 `isFetching`를 읽어들여 UI를 렌더링할 것입니다.
 
 ### Query Hook Usage Example
 
@@ -327,13 +327,13 @@ To summarize the above behaviour - the returned values must be correctly memoize
 
 ### Avoiding unnecessary requests
 
-By default, if you add a component that makes the same query as an existing one, no request will be performed.
+기본적으로 기존 쿼리와 동일한 쿼리를 만드는 component를 추가하면 데이터 요청이 수행되지 않습니다.
 
-In some cases, you may want to skip this behavior and force a refetch - in that case, you can call `refetch` that is returned by the hook.
+때때로는 해당 기능을 무시한 채 강제로 refetch가 필요한 경우가 있습니다 - 이 경우, hook에서 반환된 `refetch`를 통해 해결이 가능합니다.
 
 :::info
 
-If you're not using React Hooks, you can access `refetch` like this:
+만약 React Hooks를 사용하고 있지 않다면, 다음과 같이 `refetch`에 접근할 수 있습니다:
 
 ```ts no-transpile
 const { status, data, error, refetch } = dispatch(
@@ -345,13 +345,13 @@ const { status, data, error, refetch } = dispatch(
 
 ## Example: Observing caching behavior
 
-This example demonstrates request deduplication and caching behavior:
+이 예는 중복 요청 제거 및 캐싱 동작을 보여줍니다:
 
-1. The first `Pokemon` component mounts and immediately fetches 'bulbasaur'
-2. A second later, another `Pokemon` component is rendered with 'bulbasaur'
-   - Notice that this one doesn't ever show 'Loading...' and no new network request happens? It's using the cache here.
-3. A moment after that, a `Pokemon` component for 'pikachu' is added, and a new request happens.
-4. When you click 'Refetch' of a particular pokemon type, it'll update all of them with one request.
+1. 첫 'bulbasaur' 유형의 `Pokemon` component 가 추가되고, 'bulbasaur' 데이터를 요청을 통해 가져옵니다.
+2. 그 뒤, 다른 'bulbasaur' 유형의 `Pokemon` component가 추가 됩니다.
+   - 이 경우 'Loading...' 이 표시되지 않고 네트워크 요청이 발생하지 않는 것을 볼 수 있나요? 여기서 캐시가 사용됩니다.
+3. 잠시 후, 'pikachu' 유형의 `Pokemon` component 가 추가되고, 'pikachu' 데이터를 요청을 통해 가져옵니다.
+4. 특정 포켓몬 유형의 'Refetch' 를 누를 경우, 한번의 요청으로 해당 포켓몬 유형의 모든 component가 업데이트 됩니다.
 
 :::note Try it out
 Click the 'Add bulbasaur' button. You'll observe the same behavior described above until you click the 'Refetch' button on one of the components.

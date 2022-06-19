@@ -10,15 +10,15 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 
 &nbsp;
 
-# Getting Started with Redux Toolkit
+# Redux Toolkit 시작하기
 
 ## Purpose
 
-The **Redux Toolkit** package is intended to be the standard way to write [Redux](https://redux.js.org) logic. It was originally created to help address three common concerns about Redux:
+**Redux Toolkit** 패키지는 [Redux](https://redux.js.org) 로직을 작성하기 위한 표준 방식을 위해 만들어졌습니다. It was originally created to help address three common concerns about Redux:
 
-- "Configuring a Redux store is too complicated"
-- "I have to add a lot of packages to get Redux to do anything useful"
-- "Redux requires too much boilerplate code"
+- "Redux store를 구성하는 것은 너무 복잡합니다"
+- "Redux에서 유용한 작업을 수행하기 위해서는 많은 패키지를 추가해야합니다"
+- "Redux는 너무 많은 boilerplate code를 필요로 합니다"
 
 We can't solve every use case, but in the spirit of [`create-react-app`](https://github.com/facebook/create-react-app), we can try to provide some tools that abstract over the setup process and handle the most common use cases, as well as include some useful utilities that will let the user simplify their application code.
 
@@ -28,9 +28,9 @@ Redux Toolkit also includes a powerful data fetching and caching capability that
 first project, or an experienced user who wants to simplify an existing application, **Redux Toolkit** can help
 you make your Redux code better.
 
-## Installation
+## 설치하기
 
-### Using Create React App
+### Create React App 사용
 
 The recommended way to start new apps with React and Redux is by using the [official Redux+JS template](https://github.com/reduxjs/cra-template-redux) or [Redux+TS template](https://github.com/reduxjs/cra-template-redux-typescript) for [Create React App](https://github.com/facebook/create-react-app), which takes advantage of **[Redux Toolkit](https://redux-toolkit.js.org/)** and React Redux's integration with React components.
 
@@ -63,7 +63,7 @@ The UMD package can be used as a [`<script>` tag](https://unpkg.com/@reduxjs/too
 
 ## What's Included
 
-Redux Toolkit includes these APIs:
+Redux Toolkit 은 다음 API들을 포함하고 있습니다:
 
 - [`configureStore()`](../api/configureStore.mdx): wraps `createStore` to provide simplified configuration options and good defaults. It can automatically combine your slice reducers, adds whatever Redux middleware you supply, includes `redux-thunk` by default, and enables use of the Redux DevTools Extension.
 - [`createReducer()`](../api/createReducer.mdx): that lets you supply a lookup table of action types to case reducer functions, rather than writing switch statements. In addition, it automatically uses the [`immer` library](https://github.com/immerjs/immer) to let you write simpler immutable updates with normal mutative code, like `state.todos[3].completed = true`.
@@ -79,7 +79,7 @@ Redux Toolkit includes these APIs:
 
 RTK Query is built on top of the Redux Toolkit core for its implementation, using [Redux](https://redux.js.org/) internally for its architecture. Although knowledge of Redux and RTK are not required to use RTK Query, you should explore all of the additional global store management capabilities they provide, as well as installing the [Redux DevTools browser extension](https://github.com/reduxjs/redux-devtools), which works flawlessly with RTK Query to traverse and replay a timeline of your request & cache behavior.
 
-RTK Query is included within the installation of the core Redux Toolkit package. It is available via either of the two entry points below:
+RTK Query is included within the installation of the core Redux Toolkit package. 아래의 두가지 entry points 중 하나를 통해 사용할 수 있습니다:
 
 ```ts no-transpile
 import { createApi } from '@reduxjs/toolkit/query'
@@ -91,18 +91,18 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 
 ### What's included
 
-RTK Query includes these APIs:
+RTK Query 는 다음 API들을 포함하고 있습니다:
 
-- [`createApi()`](../rtk-query/api/createApi.mdx): The core of RTK Query's functionality. It allows you to define a set of endpoints describe how to retrieve data from a series of endpoints, including configuration of how to fetch and transform that data. In most cases, you should use this once per app, with "one API slice per base URL" as a rule of thumb.
+- [`createApi()`](../rtk-query/api/createApi.mdx): RTK Query 기능의 핵심입니다. It allows you to define a set of endpoints describe how to retrieve data from a series of endpoints, including configuration of how to fetch and transform that data. In most cases, you should use this once per app, with "one API slice per base URL" as a rule of thumb.
 - [`fetchBaseQuery()`](../rtk-query/api/fetchBaseQuery.mdx): A small wrapper around [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) that aims to simplify requests. Intended as the recommended `baseQuery` to be used in `createApi` for the majority of users.
-- [`<ApiProvider />`](../rtk-query/api/ApiProvider.mdx): Can be used as a `Provider` if you **do not already have a Redux store**.
-- [`setupListeners()`](../rtk-query/api/setupListeners.mdx): A utility used to enable `refetchOnMount` and `refetchOnReconnect` behaviors.
+- [`<ApiProvider />`](../rtk-query/api/ApiProvider.mdx): **Redux store가 없는 경우**  `Provider` 으로 사용할 수 있습니다.
+- [`setupListeners()`](../rtk-query/api/setupListeners.mdx): `refetchOnMount` 및 `refetchOnReconnect` 를 사용하기 위해 필요한 유틸리티 입니다.
 
 See the [**RTK Query Overview**](../rtk-query/overview.md) page for more details on what RTK Query is, what problems it solves, and how to use it.
 
-## Learn Redux
+## Redux 배우기
 
-We have a variety of resources available to help you learn Redux.
+Redux를 배우는 데 도움이 되는 다양한 리소스가 있습니다.
 
 ### Redux Essentials Tutorial
 
@@ -123,8 +123,8 @@ See [the "Learn Modern Redux" show notes page](https://www.learnwithjason.dev/le
     title="Learn Modern Redux - Redux Toolkit, React-Redux Hooks, and RTK Query"
 />
 
-## Help and Discussion
+## 도움 및 논의
 
-The **[#redux channel](https://discord.gg/0ZcbPKXt5bZ6au5t)** of the **[Reactiflux Discord community](http://www.reactiflux.com)** is our official resource for all questions related to learning and using Redux. Reactiflux is a great place to hang out, ask questions, and learn - come join us!
+**[Reactiflux Discord community](http://www.reactiflux.com)** 의 **[#redux channel](https://discord.gg/0ZcbPKXt5bZ6au5t)** 에서 Redux와 관련된 질문의 공식 리소스를 확인할 수 있습니다. Reactiflux는 어울리고, 질문하고, 배울 수 있는 좋은 장소입니다 - 우리와 함께 하세요!
 
-You can also ask questions on [Stack Overflow](https://stackoverflow.com) using the **[#redux tag](https://stackoverflow.com/questions/tagged/redux)**.
+또한 [Stack Overflow](https://stackoverflow.com) 에서 **[#redux tag](https://stackoverflow.com/questions/tagged/redux)** 를 통해 질문할 수 있습니다.

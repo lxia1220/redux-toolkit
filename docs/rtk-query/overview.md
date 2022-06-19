@@ -13,8 +13,8 @@ description: 'RTK Query > Overview: a summary of the RTK Query data caching API 
 :::tip What You'll Learn
 
 - What RTK Query is and what problems it solves
-- What APIs are included in RTK Query
-- Basic RTK Query usage
+- RTK Query에 포함되어있는 API
+- RTK Query 기본 사용법
 
 :::
 
@@ -24,7 +24,7 @@ RTK Query is **an optional addon included in the Redux Toolkit package**, and it
 
 :::info
 
-To learn how to use RTK Query, see the full ["Redux Essentials" tutorial](https://redux.js.org/tutorials/essentials/part-7-rtk-query-basics) on the Redux core docs site.
+RTK Query의 사용법을 배우고 싶다면, Redux core 문서인 ["Redux Essentials" tutorial](https://redux.js.org/tutorials/essentials/part-7-rtk-query-basics) 를 참조하세요
 
 :::
 
@@ -76,8 +76,8 @@ RTK Query includes these APIs:
 
 RTK Query adds a fixed one-time amount to your app's bundle size. Since RTK Query builds on top of Redux Toolkit and React-Redux, the added size varies depending on whether you are already using those in your app. The estimated min+gzip bundle sizes are:
 
-- If you are using RTK already: ~9kb for RTK Query and ~2kb for the hooks.
-- If you are not using RTK already:
+- 이미 RTK 를 사용중이라면: ~9kb for RTK Query and ~2kb for the hooks.
+- 이미 RTK 를 사용중이지 않다면:
   - Without React: 17 kB for RTK+dependencies+RTK Query
   - With React: 19kB + React-Redux, which is a peer dependency
 

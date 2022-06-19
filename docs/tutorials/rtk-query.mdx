@@ -23,17 +23,17 @@ hide_title: true
 
 ## Introduction
 
-Welcome to the Redux Toolkit Query tutorial! **This tutorial will briefly introduce you to Redux Toolkit's "RTK Query" data fetching capability and teach you how to start using it correctly**. 
+Redux Toolkit Query 튜토리얼에 오신 것을 환영합니다! **이 튜토리얼은 Redux Toolkit의 "RTK Query" 를 통한 data fetching 기능을 간략하게 소개하고 올바르게 사용하는 방법을 알려줍니다**.
 
 :::info
 
-For a more in-depth tutorial on RTK Query, see the full ["Redux Essentials" tutorial](https://redux.js.org/tutorials/essentials/part-7-rtk-query-basics) on the Redux core docs site.
+RTK Query에 대한 더 상세한 튜토리얼 필요하다면, Redux core 문서의 ["Redux Essentials" tutorial](https://redux.js.org/tutorials/essentials/part-7-rtk-query-basics) 를 참조하세요.
 
 :::
 
 RTK Query is an advanced data fetching and caching tool, designed to simplify common cases for loading data in a web application. RTK Query itself is built on top of the Redux Toolkit core, and leverages RTK's APIs like [`createSlice`](../api/createSlice.mdx) and [`createAsyncThunk`](../api/createAsyncThunk.mdx) to implement its capabilities.
 
-RTK Query is included in the `@reduxjs/toolkit` package as an additional addon. You are not required to use the RTK Query APIs when you use Redux Toolkit, but we think many users will benefit from RTK Query's data fetching and caching in their apps.
+RTK 쿼리는 `@reduxjs/toolkit` 패키지에 추가 애드온으로 포함되어 있습니다. Redux Toolkit을 사용할 때 꼭 RTK Query API를 사용할 필요는 없지만, 많은 사용자가 RTK Query의 data fetching 및 caching의 이점을 얻을 것이라고 생각합니다.
 
 ### How to Read This Tutorial
 
@@ -41,11 +41,11 @@ For this tutorial, we assume that you're using Redux Toolkit with React, but you
 
 ## Setting up your store and API service
 
-To see how RTK Query works, let's walk through a basic usage example. For this example, we'll assume you're using React and want to make use of RTK Query's auto-generated React hooks.
+RTK Query가 어떻게 동작하는지 보기 위해 기본 사용 예를 살펴보겠습니다. 이 예에서는 React를 사용 중이고 RTK Query로 자동 생성된 React hooks를 사용하려고 한다고 가정합니다.
 
 ### Create an API service
 
-First, we'll create a service definition that queries the publicly available [PokeAPI](https://pokeapi.co/).
+먼저 공개적으로 사용 가능한 [PokeAPI](https://pokeapi.co/)를 쿼리하는 service definition을 만듭니다.
 
 ```ts title="src/services/pokemon.ts"
 // file: services/types.ts noEmit
@@ -88,7 +88,7 @@ For maintainability purposes, you may wish to split up endpoint definitions acro
 
 ### Add the service to your store
 
-An RTKQ service generates a "slice reducer" that should be included in the Redux root reducer, and a custom middleware that handles the data fetching. Both need to be added to the Redux store.
+RTKQ 서비스는 Redux root reducer에 포함되어야 하는 "slice reducer"와 data fetching을 처리하는 custom middleware를 생성합니다. 둘 다 Redux store에 추가되어야 합니다.
 
 ```ts title="src/store.ts"
 // file: services/pokemon.ts noEmit
@@ -132,7 +132,7 @@ setupListeners(store.dispatch)
 
 ### Wrap your application with the `Provider`
 
-If you haven't already done so, follow the standard pattern for providing the Redux store to the rest of your React application component tree:
+만약 이 작업을 해두지 않았다면, 나머지 React 애플리케이션 구성 요소 트리에 Redux 저장소를 제공하기 위한 표준 패턴을 따르세요.
 
 ```ts title="src/index.tsx"
 // file: App.tsx noEmit
@@ -167,7 +167,7 @@ render(
 
 ## Use the query in a component
 
-Once a service has been defined, you can import the hooks to make a request.
+서비스가 정의되었다면, hooks를 가져와서 request를 요청할 수 있습니다.
 
 ```ts title="src/App.tsx"
 // file: services/pokemon.ts noEmit
@@ -215,7 +215,7 @@ export default function App() {
 }
 ```
 
-When making a request, you're able to track the state in several ways. You can always check `data`, `status`, and `error` to determine the right UI to render. In addition, `useQuery` also provides utility booleans like `isLoading`, `isFetching`, `isSuccess`, and `isError` for the latest request.
+데이터를 요청할 때 여러 가지 방법을 통해 state를 추적할 수 있습니다. 제공되는 `data`, `status` 및 `error`를 통해 렌더링할 올바른 UI를 결정할 수 있습니다. 또한 `useQuery`는 최근 요청에 대해 `isLoading`, `isFetching`, `isSuccess` 및 `isError`와 같은 utility booleans을 제공합니다.
 
 #### Basic Example
 
@@ -233,11 +233,11 @@ When making a request, you're able to track the state in several ways. You can a
   sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
 ></iframe>
 
-Okay, that's interesting... but what if you wanted to show multiple pokemon at the same time? What happens if multiple components load the same pokemon?
+좋아요, 흥미롭네요... 하지만 동시에 여러 포켓몬을 보여주고 싶다면? 여러 components가 동일한 포켓몬을 로드하면 어떻게 됩니까?
 
 #### Advanced example
 
-RTK Query ensures that any component that subscribes to the same query will always use the same data. RTK Query automatically de-dupes requests so you don't have to worry about checking in-flight requests and performance optimizations on your end. Let's evaluate the sandbox below - make sure to check the Network panel in your browser's dev tools. You will see 3 requests, even though there are 4 subscribed components - `bulbasaur` only makes one request, and the loading state is synchronized between the two components. For fun, try changing the value of the dropdown from `Off` to `1s` to see this behavior continue when a query is re-ran.
+RTK Query는 동일한 쿼리를 구독하는 모든 구성 요소가 항상 동일한 데이터를 사용하도록 합니다. RTK Query는 데이터 요청의 중복을 자동으로 제거하므로 진행 중인 데이터 요청 및 성능 최적화를 최종적으로 확인하는 것에 대해 걱정할 필요가 없습니다. 아래의 sandbox 를 실행 해 보겠습니다. - 브라우저의 dev tools에서 Network 패널을 확인하세요. 4개의 subscribed components가 있으나, 3개의 요청만 진행되는 것을 확인할 수 있을것입니다. - `bulbasaur` only makes one request, and the loading state is synchronized between the two components. For fun, try changing the value of the dropdown from `Off` to `1s` to see this behavior continue when a query is re-ran.
 
 <iframe
   src="https://codesandbox.io/embed/github/reduxjs/redux-toolkit/tree/master/examples/query/react/advanced?file=/src/App.tsx?fontsize=12&runonclick=1&hidenavigation=1&theme=dark"

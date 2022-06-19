@@ -11,13 +11,13 @@ hide_title: true
 
 :::tip What You'll Learn
 
-- Details on how to use each Redux Toolkit API with TypeScript
+- Typescript와 함께 Redux Toolkit의 여러 API를 사용하는 방법
 
 :::
 
 ## Introduction
 
-Redux Toolkit is written in TypeScript, and its API is designed to enable great integration with TypeScript applications.
+Redux Toolkit은 TypeScript로 작성되었으며 해당 API는 TypeScript 애플리케이션에서 원활하게 사용하도록 설계되었습니다.
 
 This page provides specific details for each of the different APIs included in Redux Toolkit and how to type them correctly with TypeScript.
 
@@ -25,7 +25,7 @@ This page provides specific details for each of the different APIs included in R
 
 :::info
 
-If you encounter any problems with the types that are not described on this page, please [open an issue](https://github.com/reduxjs/redux-toolkit/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) for discussion.
+이 페이지에 설명되지 않은 유형의 문제가 발생하는 경우, [이슈를 열어](https://github.com/reduxjs/redux-toolkit/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) 논의 해 볼 수 있습니다.
 
 :::
 

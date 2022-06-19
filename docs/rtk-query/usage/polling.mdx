@@ -12,7 +12,7 @@ description: 'RTK Query > Usage > Polling: re-fetching data on a timer'
 
 ## Polling Overview
 
-Polling gives you the ability to have a 'real-time' effect by causing a query to run at a specified interval. To enable polling for a query, pass a `pollingInterval` to the `useQuery` hook or action creator with an interval in milliseconds:
+Polling은 쿼리가 지정된 간격으로 실행되도록 하여 '실시간' 효과를 낼 수 있는 기능을 제공합니다. 쿼리에 대한 폴링을 활성화하려면 `pollingInterval`을 밀리초 단위로 `useQuery` hook 또는 action creator 에 전달합니다:
 
 ```tsx title="src/Pokemon.tsx" no-transpile
 import * as React from 'react'

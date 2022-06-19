@@ -13,7 +13,7 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 
 # Tutorials Overview
 
-**The Redux core docs site at https://redux.js.org contains the primary tutorials for learning Redux**, including how to use Redux Toolkit and React-Redux together.
+**Redux core 문서 사이트인 https://redux.js.org에는 Redux 학습을 위한 기본 튜토리얼과 함께**, Redux Toolkit과 React-Redux를 함께 사용하는 방법이 포함되어 있습니다.
 
 :::tip
 
@@ -21,7 +21,7 @@ To avoid duplicating explanations between the Redux core and Redux Toolkit docum
 
 :::
 
-See these linked tutorials to learn how to use Redux Toolkit effectively.
+Redux Toolkit을 효과적으로 사용하는 방법을 배우려면 다음의 링크된 튜토리얼들을 참조하세요.
 
 ## Redux Toolkit Quick Starts
 

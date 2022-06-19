@@ -11,9 +11,9 @@ hide_title: true
 
 A port of the [`redux-immutable-state-invariant`](https://github.com/leoasis/redux-immutable-state-invariant) middleware, customized for use with Redux Toolkit. Any detected mutations will be thrown as errors.
 
-This middleware is added to the store by default by [`configureStore`](./configureStore.mdx) and [`getDefaultMiddleware`](./getDefaultMiddleware.mdx).
+이 미들웨어는 [`configureStore`](./configureStore.mdx) 의 [`getDefaultMiddleware`](./getDefaultMiddleware.mdx) 에 의해 기본적으로 store에 추가됩니다.
 
-You can customize the behavior of this middleware by passing any of the supported options as the `immutableCheck` value for `getDefaultMiddleware`.
+`getDefaultMiddleware` 에 전달되는 옵션 중 `immutableCheck` 값을 통해 이 미들웨어의 동작을 사용자 정의할 수 있습니다.
 
 ## Options
 
@@ -45,7 +45,7 @@ interface ImmutableStateInvariantMiddlewareOptions {
 
 ### `createImmutableStateInvariantMiddleware`
 
-Creates an instance of the immutability check middleware, with the given options.
+주어진 옵션으로 immutability check middleware의 인스턴스를 생성합니다.
 
 You will most likely not need to call this yourself, as `getDefaultMiddleware` already does so.
 
