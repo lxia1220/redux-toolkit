@@ -114,7 +114,7 @@ The [**Redux Fundamentals tutorial**](https://redux.js.org/tutorials/fundamental
 
 ### Learn Modern Redux Livestream
 
-Redux maintainer Mark Erikson appeared on the "Learn with Jason" show to explain how we recommend using Redux today. The show includes a live-coded example app that shows how to use Redux Toolkit and React-Redux hooks with Typescript, as well as the new RTK Query data fetching APIs.
+Redux maintainer인 Mark Erikson은 "Learn with Jason" 쇼를 통해 오늘날의 Redux 권장 사용법에 대해 설명합니다. 이 쇼에서는 Redux Toolkit과 React-Redux hooks를 Typescript와 함께 사용하는 방법과 RTK Query를 통한 데이터 가져오기 API를 사용하는 법을 보여주는 live-coded 예시 어플리케이션이 포함되어 있습니다.
 
 See [the "Learn Modern Redux" show notes page](https://www.learnwithjason.dev/let-s-learn-modern-redux) for a transcript and links to the example app source.
 

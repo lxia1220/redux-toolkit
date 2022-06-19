@@ -9,7 +9,7 @@ hide_title: true
 
 # Usage With TypeScript
 
-:::tip What You'll Learn
+:::tip 배울 내용
 
 - Typescript와 함께 Redux Toolkit의 여러 API를 사용하는 방법
 

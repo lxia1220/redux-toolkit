@@ -13,9 +13,9 @@ Redux Toolkit's [`createReducer`](../api/createReducer.mdx) and [`createSlice`](
 
 Because Immer is itself an abstraction layer, it's important to understand why Redux Toolkit uses Immer, and how to use it correctly.
 
-## Immutability과 Redux
+## 불변성과 Redux
 
-### Immutability의 기초
+### 불변성의 기초
 
 "Mutable" 은 "변경가능한" 것을 의미합니다. 만약 무언가가 "immutable" 하다면, 그것은 변경될 수 없습니다.
 
@@ -69,7 +69,7 @@ const arr3 = arr.slice()
 arr3.push('c')
 ```
 
-:::info Want to Know More?
+:::info 더 알고싶나요?
 
 JavaScript에서의 불변성에 더 알고 싶다면, 다음을 참고하세요:
 
@@ -93,9 +93,9 @@ state.value = 123
 
 Redux에서 state를 수정해선 안되는 몇가지 이유가 있습니다:
 
-- It causes bugs, such as the UI not updating properly to show the latest values
-- It makes it harder to understand why and how the state has been updated
-- 그것은 테스트를 작성하기 더욱 어렵게 만듭니다.
+- UI가 최신 값을 반영하지 않는 것과 같은 버그를 유발합니다
+- state가 언제 어떻게 업데이트 되었는지 이해하기를 어렵게 만듭니다
+- 테스트를 작성하기 더욱 어렵게 만듭니다
 - It breaks the ability to use "time-travel debugging" correctly
 - It goes against the intended spirit and usage patterns for Redux
 
@@ -103,7 +103,7 @@ Redux에서 state를 수정해선 안되는 몇가지 이유가 있습니다:
 
 :::tip
 
-**Reducers can only make _copies_ of the original values, and then they can mutate the copies.**
+**Reducers 는 원본값의 _복사본_ 만 만들 수 있으며, 복사본을 수정할 수 있습니다.**
 
 ```js
 // ✅ This is safe, because we made a copy
@@ -115,11 +115,11 @@ return {
 
 :::
 
-We already saw that we can write immutable updates by hand, by using JavaScript's array / object spread operators and other functions that return copies of the original values.
+JavaScript의 배열/객체 확산 연산자와 원래 값의 복사본을 반환하는 기타 함수를 사용하여 Immutable Updates를 직접 작성할 수 있음을 이미 보았습니다.
 
-This becomes harder when the data is nested. **A critical rule of immutable updates is that you must make a copy of _every_ level of nesting that needs to be updated.**
+이것은 데이터가 중첩되어 있을 경우 더욱 어려워지며, **Immutable Updates의 중요한 규칙은 업데이트해야 하는 중첩의 _모든_ 수준의 복사본을 만들어야 한다는 것입니다.**
 
-A typical example of this might look like:
+이것의 예시를 보여주자면:
 
 ```js
 function handwrittenReducer(state, action) {
@@ -141,13 +141,13 @@ function handwrittenReducer(state, action) {
 
 However, if you're thinking that "writing immutable updates by hand this way looks hard to remember and do correctly"... yeah, you're right! :)
 
-Writing immutable update logic by hand _is_ hard, and **accidentally mutating state in reducers is the single most common mistake Redux users make**.
+직접 immutable update를 작성하는 것은 어려운 일이며, **reducers에서 실수로 상태를 변경하는 것은 Redux 사용자가 저지르는 가장 일반적인 실수입니다**.
 
 ## Immer를 통한 Immutable Updates
 
 [Immer](https://immerjs.github.io/immer/) 는 immutable update logic을 단순화 시켜주는 라이브러리 입니다.
 
-Immer provides a function called `produce`, which accepts two arguments: your original `state`, and a callback function. The callback function is given a "draft" version of that state, and inside the callback, it is safe to write code that mutates the draft value. Immer tracks all attempts to mutate the draft value and then replays those mutations using their immutable equivalents to create a safe, immutably updated result:
+Immer는 두가지 인수인 원본의 `state`와 콜백 함수를 허용하는 `produce` 함수를 제공합니다. The callback function is given a "draft" version of that state, and inside the callback, it is safe to write code that mutates the draft value. Immer tracks all attempts to mutate the draft value and then replays those mutations using their immutable equivalents to create a safe, immutably updated result:
 
 ```js
 import produce from 'immer'
@@ -231,7 +231,7 @@ Remember, **the "mutating" logic _only_ works correctly when wrapped inside of I
 
 ## Immer Usage Patterns
 
-There are several useful patterns to know about and gotchas to watch out for when using Immer in Redux Toolkit.
+Redux Toolkit에서 Immer를 사용할 때 알아야 할 몇 가지 유용한 패턴과 주의해야 할 문제가 있습니다.
 
 ### Mutating and Returning State
 
@@ -453,7 +453,7 @@ const itemsSlice = createSlice({
 
 Many ESLint configs include the https://eslint.org/docs/rules/no-param-reassign rule, which may also warn about mutations to nested fields. That can cause the rule to warn about mutations to `state` in Immer-powered reducers, which is not helpful.
 
-To resolve this, you can tell the ESLint rule to ignore mutations to a parameter named `state`:
+이 문제를 해결하려면 ESLint 규칙에 `state`라는 매개변수에 대한 변형을 무시하도록 설정할 수 있습니다:
 
 ```js
 {
@@ -472,7 +472,7 @@ It's worth going over the reasons why we consider Immer to be a critical part of
 
 ### Immer의 이점
 
-Immer has two primary benefits. First, **Immer drastically simplifies immutable update logic**. [Proper immutable updates are extremely verbose](https://redux.js.org/usage/structuring-reducers/immutable-update-patterns#updating-nested-objects). Those verbose operations are hard to read overall, and also obfuscate what the actual intent of the update statement is. Immer eliminates all the nested spreads and array slices. Not only is the code shorter and easier to read, it's much more clear what actual update is supposed to happen.
+Immer에는 두 가지 주요 이점이 있습니다. First, **Immer drastically simplifies immutable update logic**. [Proper immutable updates are extremely verbose](https://redux.js.org/usage/structuring-reducers/immutable-update-patterns#updating-nested-objects). Those verbose operations are hard to read overall, and also obfuscate what the actual intent of the update statement is. Immer eliminates all the nested spreads and array slices. Not only is the code shorter and easier to read, it's much more clear what actual update is supposed to happen.
 
 Second, [writing immutable updates correctly is _hard_](https://redux.js.org/usage/structuring-reducers/immutable-update-patterns), and it is really easy to make mistakes (like forgetting to copy a level of nesting in a set of object spreads, copying a top-level array and not the item to be updated inside the array, or forgetting that `array.sort()` mutates the array). This is part of why [accidental mutations has always been the most common cause of Redux bugs](https://redux.js.org/faq/react-redux#why-isnt-my-component-re-rendering-or-my-mapstatetoprops-running). **Immer effectively _eliminates_ accidental mutations**. Not only are there no more spread operations that can be mis-written, but Immer freezes state automatically as well. This causes errors to be thrown if you do accidentally mutate, even outside of a reducer. **Eliminating the #1 cause of Redux bugs is a _huge_ improvement.**
 

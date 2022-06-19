@@ -9,7 +9,7 @@ hide_title: true
 
 # Redux Toolkit TypeScript Quick Start
 
-:::tip What You'll Learn
+:::tip 배울 내용
 
 - How to set up and use Redux Toolkit and React-Redux with TypeScript
 
@@ -17,9 +17,9 @@ hide_title: true
 
 :::info Prerequisites
 
-- Knowledge of React [Hooks](https://reactjs.org/docs/hooks-intro.html)
-- Understanding of [Redux terms and concepts](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow)
-- Understanding of TypeScript syntax and concepts
+- React [Hooks](https://reactjs.org/docs/hooks-intro.html) 에 대한 지식 
+- [Redux의 용어 및 개념](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow) 에 대한 이해
+- TypeScript의 구문 및 개념에 대한 이해
 
 :::
 
@@ -29,7 +29,7 @@ Welcome to the Redux Toolkit TypeScript Quick Start tutorial! **This tutorial wi
 
 This page focuses on just how to set up the TypeScript aspects . For explanations of what Redux is, how it works, and full examples of how to use Redux Toolkit, [see the tutorials linked in the "Tutorials Overview" page](./overview.md).
 
-Redux Toolkit is already written in TypeScript, so its TS type definitions are built in.
+Redux Toolkit은 TypeScript로 작성되었으므로 TS type 정의가 내장되어 있습니다.
 
 [React Redux](https://react-redux.js.org) has its type definitions in a separate [`@types/react-redux` typedefs package](https://npm.im/@types/react-redux) on NPM. In addition to typing the library functions, the types also export some helpers to make it easier to write typesafe interfaces between your Redux store and your React components.
 

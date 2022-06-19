@@ -10,7 +10,7 @@ description: 'RTK Query > Overview: a summary of the RTK Query data caching API 
 
 # RTK Query 개요
 
-:::tip What You'll Learn
+:::tip 배울 내용
 
 - RTK 쿼리란 무엇이며 어떤 문제를 해결하는지
 - RTK Query에 포함되어있는 API
