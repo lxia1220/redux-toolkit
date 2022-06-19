@@ -62,11 +62,11 @@ The RTK [**Usage Guide** docs page](../usage/usage-guide.md) explains the standa
 
 The [Redux Essentials tutorial](https://redux.js.org/tutorials/essentials/part-1-overview-concepts) also shows how to use each of the APIs while building an application.
 
-## Migrating Vanilla Redux to Redux Toolkit
+## Vanilla Redux를 Redux Toolkit로 이전하기
 
-If you already know Redux and just want to know how to migrate an existing application to use Redux Toolkit, the [**"Modern Redux with Redux Toolkit" page in the Redux Fundamentals tutorial**](https://redux.js.org/tutorials/fundamentals/part-8-modern-redux) shows how RTK's APIs simplify Redux usage patterns and how to handle that migration.
+이미 Redux에 대해 알고 있고 Redux Toolkit으로 이전하고 싶은 방법을 알고 싶은 경우, [**"Modern Redux with Redux Toolkit" page in the Redux Fundamentals tutorial**](https://redux.js.org/tutorials/fundamentals/part-8-modern-redux) 에서 어떻게 RTK의 API가 Redux의 패턴을 단순화 하는지와 이로 이전 하는 방법을 확인할 수 있습니다.
 
-## Using Redux Toolkit with TypeScript
+## TypeScript와 함께 Redux Toolkit 사용하기
 
 The RTK docs page on [**Usage with TypeScript**](../usage/usage-with-typescript.md) shows the basic pattern for setting up Redux Toolkit with TypeScript and React, and documents specific TS patterns for each of the RTK APIs.
 

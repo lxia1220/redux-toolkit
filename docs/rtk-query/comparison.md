@@ -12,7 +12,7 @@ description: 'RTK Query > Comparison: Compares features and tradeoffs vs other s
 
 **RTK Query takes inspiration from many other data fetching libraries in the ecosystem**. Much like [the Redux core library was inspired by tools like Flux and Elm](https://redux.js.org/understanding/history-and-design/prior-art), RTK Query builds on API design patterns and feature concepts popularized by libraries like [React Query](https://react-query.tanstack.com/), [SWR](https://swr.vercel.app/), [Apollo](https://www.apollographql.com/), and [Urql](https://formidable.com/open-source/urql/). RTK Query has been written from scratch, but tries to use the best concepts from those libraries and other data fetching tools, with an eye towards leveraging the unique strengths and capabilities of Redux.
 
-We think that all of those tools are great! If you're using one of them, you're happy with it, and it solves the problems you are facing in your app, keep using that tool. The information on this page is meant to help show **where there are differences in features, implementation approaches, and API design**. The goal is to help you **make informed decisions and understand tradeoffs**, rather than argue that tool X is better than tool Y.
+우리는 이 모든 툴들이 멋지다고 생각합니다! 만약 당신이 그 중 하나를 사용하고 있으며, 그에 만족하고, 그것이 당신의 어플리케이션에서 직면한 문제를 해결한다면 해당 툴을 계속 사용하세요. The information on this page is meant to help show **where there are differences in features, implementation approaches, and API design**. The goal is to help you **make informed decisions and understand tradeoffs**, rather than argue that tool X is better than tool Y.
 
 ## 언제 RTK Query를 사용해야하나요?
 
@@ -25,7 +25,7 @@ RTK Query를 사용하는 주된 이유로는:
 
 ### 특별한 기능들
 
-RTK Query has some unique API design aspects and capabilities that are worth considering.
+RTK 쿼리에는 고려해 볼 만한 가치가 있는 몇 가지 고유한 API 디자인 측면과 기능들이 있습니다.
 
 - With React Query and SWR, you usually define your hooks yourself, and you can do that all over the place and on the fly. With RTK Query, you do so in one central place by defining an "API slice" with multiple endpoints ahead of time. This allows for a more tightly integrated model of mutations automatically invalidating/refetching queries on trigger.
 - Because RTK Query dispatches normal Redux actions as requests are processed, all actions are visible in the Redux DevTools. Additionally, every request is automatically visible to your Redux reducers and can easily update the global application state if necessary ([see example](https://github.com/reduxjs/redux-toolkit/issues/958#issuecomment-809570419)). You can use the endpoint [matcher functionality](./api/created-api/endpoints#matchers) to do additional processing of cache-related actions in your own reducers.
