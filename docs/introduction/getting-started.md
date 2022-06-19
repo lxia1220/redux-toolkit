@@ -93,9 +93,9 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 
 RTK Query 는 다음 API들을 포함하고 있습니다:
 
-- [`createApi()`](../rtk-query/api/createApi.mdx): RTK Query 기능의 핵심입니다. It allows you to define a set of endpoints describe how to retrieve data from a series of endpoints, including configuration of how to fetch and transform that data. In most cases, you should use this once per app, with "one API slice per base URL" as a rule of thumb.
+- [`createApi()`](../rtk-query/api/createApi.mdx): RTK Query의 기능의 핵심입니다. It allows you to define a set of endpoints describe how to retrieve data from a series of endpoints, including configuration of how to fetch and transform that data. In most cases, you should use this once per app, with "one API slice per base URL" as a rule of thumb.
 - [`fetchBaseQuery()`](../rtk-query/api/fetchBaseQuery.mdx): A small wrapper around [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) that aims to simplify requests. Intended as the recommended `baseQuery` to be used in `createApi` for the majority of users.
-- [`<ApiProvider />`](../rtk-query/api/ApiProvider.mdx): **Redux store가 없는 경우**  `Provider` 으로 사용할 수 있습니다.
+- [`<ApiProvider />`](../rtk-query/api/ApiProvider.mdx): **Redux store가 없는 경우**  `Provider` 로 사용할 수 있습니다.
 - [`setupListeners()`](../rtk-query/api/setupListeners.mdx): `refetchOnMount` 및 `refetchOnReconnect` 를 사용하기 위해 필요한 유틸리티 입니다.
 
 See the [**RTK Query Overview**](../rtk-query/overview.md) page for more details on what RTK Query is, what problems it solves, and how to use it.

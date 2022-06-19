@@ -15,7 +15,7 @@ hide_title: true
 
 :::
 
-## Introduction
+## 소개
 
 Redux Toolkit은 TypeScript로 작성되었으며 해당 API는 TypeScript 애플리케이션에서 원활하게 사용하도록 설계되었습니다.
 

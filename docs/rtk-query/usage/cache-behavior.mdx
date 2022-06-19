@@ -16,60 +16,60 @@ RTK Query provides a number of concepts and tools to manipulate the cache behavi
 
 ## Default Cache Behavior
 
-With RTK Query, caching is based on:
+RTK Query에서는 다음을 기반으로 캐싱이 진행됩니다:
 
-- API endpoint definitions
-- The serialized query parameters used when components subscribe to data from an endpoint
-- Active subscription reference counts
+- API endpoint 정의
+- components들이 endpoint의 구독에 사용한 직렬화된 query parameters
+- 활성화 된 구독 reference 갯수
 
-When a subscription is started, the parameters used with the endpoint are serialized and stored internally as a `queryCacheKey` for the request. Any future request that produces the same `queryCacheKey` (i.e. called with the same parameters, factoring serialization) will be de-duped against the original, and will share the same data and updates. i.e. two separate components performing the same request will use the same cached data.
+구독이 시작되면, endpoint에 사용된 parameters들이 직렬화되며 요청에 대한 `queryCacheKey`로 내부적으로 저장됩니다. 향후 동일한 `queryCacheKey`를 생성하는 요청 (i.e. called with the same parameters, factoring serialization)은 원본에 따라 중복 제거되며, 동일한 데이터 및 업데이트를 공유합니다. 즉, 동일한 요청을 사용하는 두개의 개별 components들은 동일한 캐시된 데이터를 사용합니다.
 
-When a request is attempted, if the data already exists in the cache, then that data is served and no new request is sent to the server. Otherwise, if the data does not exist in the cache, then a new request is sent, and the returned response is stored in the cache.
+요청이 시도될 때 데이터가 이미 캐시에 있는 경우 해당 데이터가 제공되고 새 요청이 서버로 전송되지 않습니다. 그렇지 않고 데이터가 캐시에 없으면 새 요청이 전송되고 반환된 응답은 캐시에 저장됩니다.
 
 Subscriptions are reference-counted. Additional subscriptions that ask for the same endpoint+params increment the reference count. As long as there is an active 'subscription' to the data (e.g. if a component is mounted that calls a `useQuery` hook for the endpoint), then the data will remain in the cache. Once the subscription is removed (e.g. when last component subscribed to the data unmounts), after an amount of time (default 60 seconds), the data will be removed from the cache. The expiration time can be configured with the `keepUnusedDataFor` property for the [API definition as a whole](../api/createApi.mdx#keepunuseddatafor), as well as on a [per-endpoint](../api/createApi.mdx#keepunuseddatafor-1) basis.
 
 ### Cache lifetime & subscription example
 
-Imagine an endpoint that expects an `id` as the query param, and 4 components mounted which are requesting data from this same endpoint:
+쿼리 매개변수로 `id` 를 사용하는 엔드포인트와, 해당 엔드포인트에서 데이터를 요청하는 4개의 구성요소가 탑재되어 있다고 상상해 봅시다.
 
 ```ts no-transpile
 import { useGetUserQuery } from './api.ts'
 
 function ComponentOne() {
-  // component subscribes to the data
+  // component 는 데이터를 구독합니다.
   const { data } = useGetUserQuery(1)
 
   return <div>...</div>
 }
 
 function ComponentTwo() {
-  // component subscribes to the data
+  // component 는 데이터를 구독합니다.
   const { data } = useGetUserQuery(2)
 
   return <div>...</div>
 }
 
 function ComponentThree() {
-  // component subscribes to the data
+  // component 는 데이터를 구독합니다.
   const { data } = useGetUserQuery(3)
 
   return <div>...</div>
 }
 
 function ComponentFour() {
-  // component subscribes to the *same* data as ComponentThree,
-  // as it has the same query parameters
+  // component 는 ComponentThree와 동일한 query parameters를 가지고 있기 때문에,
+  // *동일한* 데이터를 구독합니다
   const { data } = useGetUserQuery(3)
 
   return <div>...</div>
 }
 ```
 
-While four components are subscribed to the endpoint, there are only three distinct combinations of endpoint + query parameters. Query parameters `1` and `2` will each have a single subscriber, while query parameter `3` has two subscribers. RTK Query will make three distinct fetches; one for each unique set of query parameters per endpoint.
+4개의 components가 endpoint에 구독 되어 있지만, endpoint + query parameters가 고유한 조합은 3개뿐입니다. query parameters `1` 과 `2` 는 각각 1개의 구독자가 있으나, `3`에는 2명의 구독자가 있습니다. RTK Query는 query parameters와 endpoint의 고유한 조합에 따라 중복이 제거된 3번의 fetch를 진행합니다.
 
-Data is kept in the cache as long as at least one active subscriber is interested in that endpoint + parameter combination. When the subscriber reference count reaches zero, a timer is set, and if there are no new subscriptions to that data by the time the timer expires, the cached data will be removed. The default expiration is 60 seconds, which can be configured both for the [API definition as a whole](../api/createApi.mdx#keepunuseddatafor), as well as on a [per-endpoint](../api/createApi.mdx#keepunuseddatafor-1) basis.
+endpoint + query parameters에 대해 하나 이상의 구독자가 활성화 되어있는 한 데이터는 캐시에 보관됩니다. 만약 구독자가 0이 될 경우, 타이머가 설정되고, 타이머가 만료될 때 까지 새 구독자가 존재하지 않는다면 데이터는 캐시에서 제거되게 됩니다. 기본 만료시간은 60초이며, [API 정의 전체](../api/createApi.mdx#keepunuseddatafor) 및 [endpoint 별](../api/createApi.mdx#keepunuseddatafor-1) 기준으로 설정할 수 있습니다.
 
-If 'ComponentThree' is unmounted in the example above, regardless of how much time passes, the data will remain in the cache due to 'ComponentFour' still being subscribed to the same data, and the subscribe reference count will be `1`. However, once 'ComponentFour' unmounts, the subscriber reference count will be `0`. The data will remain in the cache for the remainder of the expiration time. If no new subscription has been created before the timer expires, the cached data will finally be removed.
+위의 예시에서 'ComponentThree'가 unmounted 된 뒤, 얼마만큼의 시간이 지나더라도 'ComponentFour'이 여전히 구독자로서 남아있어, 구독자의 수는 `1` 이므로 계속 데이터는 캐시에 남아있게 됩니다. 그러나 'ComponentFour'가 unmount 된다면, 구독자의 수는 `0` 이 되어 만료시간동안 캐시에 존재하게 됩니다. 만료시간동안 새로운 구독자가 생성되지 않는다면, 캐시된 데이터는 최종적으로 제거됩니다.
 
 ## Manipulating Cache Behavior
 

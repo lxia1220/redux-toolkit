@@ -19,7 +19,7 @@ We think that all of those tools are great! If you're using one of them, you're 
 RTK Query를 사용하는 주된 이유로는:
 
 - Redux 어플리케이션을 가지고 있으며, 이에 이미 작성된 Data Fetching 로직을 단순화하고 싶은 경우
-- You want to be able to use the Redux DevTools to see the history of changes to your state over time
+- Redux DevTools를 통해 시간에 따른 state 변화를 보고 싶은 경우
 - You want to be able to integrate the RTK Query behavior with the rest of the Redux ecosystem
 - 어플리케이션 로직이 React 밖에서 동작하고 싶은 경우
 
@@ -50,8 +50,8 @@ RTK Query deliberately **does _not_ implement a cache that would deduplicate ide
 
 RTK Query adds a fixed one-time amount to your app's bundle size. Since RTK Query builds on top of Redux Toolkit and React-Redux, the added size varies depending on whether you are already using those in your app. The estimated min+gzip bundle sizes are:
 
-- If you are using RTK already: ~9kb for RTK Query and ~2kb for the hooks.
-- If you are not using RTK already:
+- 이미 RTK 를 사용중이라면: ~9kb for RTK Query and ~2kb for the hooks.
+- 이미 RTK 를 사용중이지 않다면:
   - Without React: 17 kB for RTK+dependencies+RTK Query
   - With React: 19kB + React-Redux, which is a peer dependency
 
@@ -65,7 +65,7 @@ It's worth comparing the feature sets of all these tools to get a sense of their
 
 :::info
 
-This comparison table strives to be as accurate and as unbiased as possible. If you use any of these libraries and feel the information could be improved, feel free to suggest changes (with notes or evidence of claims) by [opening an issue](https://github.com/reduxjs/redux-toolkit/issues/new).
+이 비교표는 최대한 정확하고 편향되지 않도록 노력하였습니다. 이러한 라이브러리 중 하나를 사용하보고 개선되어야 할 정보가 있다고 생각되면 [opening an issue](https://github.com/reduxjs/redux-toolkit/issues/new) 를 통해 자유롭게 변경 사항을 제안하세요 (with notes or evidence of claims).
 
 :::
 

@@ -41,7 +41,7 @@ function AddPost() {
 ```
 
 :::tip
-If you need to access the error or success payload immediately after a mutation, you can chain `.unwrap()`.
+Mutation 직후 error나 success payload에 접근해야 하는 경우, `.unwrap()`을 연결 할 수 있습니다.
 
 ```ts title="Using .unwrap" no-transpile
 addPost({ id: 1, name: 'Example' })

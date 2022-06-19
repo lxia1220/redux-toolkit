@@ -8,17 +8,17 @@ description: 'RTK Query > Overview: a summary of the RTK Query data caching API 
 
 &nbsp;
 
-# RTK Query Overview
+# RTK Query 개요
 
 :::tip What You'll Learn
 
-- What RTK Query is and what problems it solves
+- RTK 쿼리란 무엇이며 어떤 문제를 해결하는지
 - RTK Query에 포함되어있는 API
 - RTK Query 기본 사용법
 
 :::
 
-**RTK Query** is a powerful data fetching and caching tool. It is designed to simplify common cases for loading data in a web application, **eliminating the need to hand-write data fetching & caching logic yourself**.
+**RTK Query**는 강력한 data fetching 및 caching 도구입니다. 이는 웹 애플리케이션에서 데이터를 로드하는 일반적인 경우를 단순화하도록 설계되어 **data fetching 및 caching 로직을 직접 작성할 필요가 없습니다**.
 
 RTK Query is **an optional addon included in the Redux Toolkit package**, and its functionality is built on top of the other APIs in Redux Toolkit.
 
@@ -33,11 +33,11 @@ RTK Query의 사용법을 배우고 싶다면, Redux core 문서인 ["Redux Esse
 Web applications normally need to fetch data from a server in order to display it. They also usually need to make updates to that data, send those updates to the server, and keep the cached data on the client in sync with the data on the server. This is made more complicated by the need to implement other behaviors used in today's applications:
 
 - Tracking loading state in order to show UI spinners
-- Avoiding duplicate requests for the same data
-- Optimistic updates to make the UI feel faster
+- 같은 데이터에 대한 중복 요청 제거
+- UI가 더 빠르게 느껴지도록 하기 위한 Optimistic updates
 - Managing cache lifetimes as the user interacts with the UI
 
-The Redux core has always been very minimal - it's up to developers to write all the actual logic. That means that Redux has never included anything built in to help solve these use cases. The Redux docs have taught [some common patterns for dispatching actions around the request lifecycle to track loading state and request results](https://redux.js.org/tutorials/fundamentals/part-7-standard-patterns#async-request-status), and [Redux Toolkit's `createAsyncThunk` API](../api/createAsyncThunk.mdx) was designed to abstract that typical pattern. However, users still have to write significant amounts of reducer logic to manage the loading state and the cached data.
+Redux core는 항상 최소한으로 구성되어 있었으며 - 실제 로직을 어떻게 작성하는지는 개발자에게 달려 있었습니다. That means that Redux has never included anything built in to help solve these use cases. The Redux docs have taught [some common patterns for dispatching actions around the request lifecycle to track loading state and request results](https://redux.js.org/tutorials/fundamentals/part-7-standard-patterns#async-request-status), and [Redux Toolkit's `createAsyncThunk` API](../api/createAsyncThunk.mdx) was designed to abstract that typical pattern. However, users still have to write significant amounts of reducer logic to manage the loading state and the cached data.
 
 Over the last couple years, the React community has come to realize that **"data fetching and caching" is really a different set of concerns than "state management"**. While you can use a state management library like Redux to cache data, the use cases are different enough that it's worth using tools that are purpose-built for the data fetching use case.
 
@@ -47,9 +47,9 @@ RTK Query takes inspiration from other tools that have pioneered solutions for d
 - Because Redux Toolkit is UI-agnostic, RTK Query's functionality can be used with any UI layer
 - API endpoints are defined ahead of time, including how to generate query parameters from arguments and transform responses for caching
 - RTK Query can also generate React hooks that encapsulate the entire data fetching process, provide `data` and `isLoading` fields to components, and manage the lifetime of cached data as components mount and unmount
-- RTK Query provides "cache entry lifecycle" options that enable use cases like streaming cache updates via websocket messages after fetching the initial data
+- RTK Query는 초기 데이터를 가져온 후 웹 소켓 메시지를 통한 업데이트가 진행되는 streaming cache updates와 같은 사용 사례를 위해 "cache entry lifecycle" 옵션을 제공합니다.
 - We have early working examples of code generation of API slices from OpenAPI and GraphQL schemas
-- Finally, RTK Query is completely written in TypeScript, and is designed to provide an excellent TS usage experience
+- 마지막으로, RTK Query는 완전히 TypeScript로 작성되었으며 우수한 TS 사용 경험을 제공하도록 설계되었습니다.
 
 ## What's included
 
@@ -65,12 +65,12 @@ import { createApi } from '@reduxjs/toolkit/query'
 import { createApi } from '@reduxjs/toolkit/query/react'
 ```
 
-RTK Query includes these APIs:
+RTK Query 는 다음 API들을 포함하고 있습니다:
 
-- [`createApi()`](./api/createApi.mdx): The core of RTK Query's functionality. It allows you to define a set of endpoints describe how to retrieve data from a series of endpoints, including configuration of how to fetch and transform that data. In most cases, you should use this once per app, with "one API slice per base URL" as a rule of thumb.
+- [`createApi()`](./api/createApi.mdx): RTK Query의 기능의 핵심입니다. It allows you to define a set of endpoints describe how to retrieve data from a series of endpoints, including configuration of how to fetch and transform that data. In most cases, you should use this once per app, with "one API slice per base URL" as a rule of thumb.
 - [`fetchBaseQuery()`](./api/fetchBaseQuery.mdx): A small wrapper around [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) that aims to simplify requests. Intended as the recommended `baseQuery` to be used in `createApi` for the majority of users.
-- [`<ApiProvider />`](./api/ApiProvider.mdx): Can be used as a `Provider` if you **do not already have a Redux store**.
-- [`setupListeners()`](./api/setupListeners.mdx): A utility used to enable `refetchOnMount` and `refetchOnReconnect` behaviors.
+- [`<ApiProvider />`](./api/ApiProvider.mdx): **Redux store가 없는 경우**  `Provider` 로 사용할 수 있습니다.
+- [`setupListeners()`](./api/setupListeners.mdx): `refetchOnMount` 및 `refetchOnReconnect` 를 사용하기 위해 필요한 유틸리티 입니다.
 
 ### Bundle Size
 
