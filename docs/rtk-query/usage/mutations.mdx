@@ -20,7 +20,7 @@ Mutation endpoints는 `createApi`의 `endpoints` 섹션에 `build.mutation()`을
 
 Mutation endpoints should define either a `query` callback that constructs the URL (including any URL query params), or [a `queryFn` callback](./customizing-queries.mdx#customizing-queries-with-queryfn) that may do arbitrary async logic and return a result. The `query` callback may also return an object containing the URL, the HTTP method to use and a request body.
 
-If the `query` callback needs additional data to generate the URL, it should be written to take a single argument. If you need to pass in multiple parameters, pass them formatted as a single "options object".
+If the `query` callback needs additional data to generate the URL, it should be written to take a single argument. 여러 매개변수를 전달해야 하는 경우 단일 "옵션 객체" 형식으로 전달하세요.
 
 Mutation endpoints may also modify the response contents before the result is cached, define "tags" to identify cache invalidation, and provide cache entry lifecycle callbacks to run additional logic as cache entries are added and removed.
 
@@ -87,9 +87,9 @@ const api = createApi({
 
 ### Mutation Hook Behavior
 
-Unlike `useQuery`, `useMutation` returns a tuple. The first item in the tuple is the "trigger" function and the second element contains an object with `status`, `error`, and `data`.
+`useQuery`와 달리 `useMutation`은 tuple을 반환합니다. tuple의 첫번째 항목은 "trigger" 함수이며, 두번째 항목은 `status`, `error`, 및 `data` 가 들어있는 object입니다.
 
-Unlike the `useQuery` hook, the `useMutation` hook doesn't execute automatically. To run a mutation you have to call the trigger function returned as the first tuple value from the hook.
+`useQuery`와 달리 `useMutation`은 자동적으로 실행되지 않습니다. Mutation을 실행하기 위해서는 hook에서 반환된 튜플의 첫번째 항목인 trigger 함수를 호출해야 합니다.
 
 See [`useMutation`](../api/created-api/hooks.mdx#usemutation) for the hook signature and additional details.
 
@@ -101,15 +101,15 @@ The "mutation trigger" is a function that when called, will fire off the mutatio
 
 The "mutation result" is an object containing properties such as the latest `data` for the mutation request, as well as status booleans for the current request lifecycle state.
 
-Below are some of the most frequently used properties on the "mutation result" object. Refer to [`useMutation`](../api/created-api/hooks.mdx#usemutation) for an extensive list of all returned properties.
+다음은 "mutation result" 객체에서 가장 자주 사용되는 속성 중 일부입니다. Refer to [`useMutation`](../api/created-api/hooks.mdx#usemutation) for an extensive list of all returned properties.
 
-- `data` - The data returned from the latest trigger response, if present. If subsequent triggers from the same hook instance are called, this will return undefined until the new data is received. Consider component level caching if the previous response data is required for a smooth transition to new data.
-- `error` - The error result if present.
-- `isUninitialized` - When true, indicates that the mutation has not been fired yet.
-- `isLoading` - When true, indicates that the mutation has been fired and is awaiting a response.
-- `isSuccess` - When true, indicates that the last mutation fired has data from a successful request.
-- `isError` - When true, indicates that the last mutation fired resulted in an error state.
-- `reset` - A method to reset the hook back to it's original state and remove the current result from the cache
+- `data` - The data returned from the latest trigger response, if present. If subsequent triggers from the same hook instance are called, this will return undefined until the new data is received. 새 데이터로의 smooth transition을 원한다면 component level의 caching을 고려하세요.
+- `error` - 오류 결과가 존재한다면 이를 반환합니다.
+- `isUninitialized` - True라면, mutation이 한번도 실행되지 않았음을 나타냅니다.
+- `isLoading` - True라면, mutation이 실행되어 응답을 기다리고 있음을 나타냅니다.
+- `isSuccess` - True라면, 마지막으로 실행된 mutation의 응답에 성공적으로 data가 있음을 나타냅니다.
+- `isError` - True라면, 마지막으로 실행된 mutation의 응답에 오류가 있음을 나타냅니다.
+- `reset` - hook을 초기 상태로 되돌리며 캐시에서 현재 결과를 제거하는 메소드입니다.
 
 :::note
 
@@ -139,8 +139,7 @@ export const ComponentTwo = () => {
 }
 ```
 
-RTK Query provides an option to share results across mutation hook instances using the
-`fixedCacheKey` option.
+RTK Query는 'fixedCacheKey' 옵션을 통해 mutation hook instances 간에 결과를 공유하는 옵션을 제공합니다.
 Any `useMutation` hooks with the same `fixedCacheKey` string will share results between each other
 when any of the trigger functions are called. This should be a unique string shared between each
 mutation hook instance you wish to share results.
@@ -167,7 +166,7 @@ export const ComponentTwo = () => {
 
 :::note
 
-When using `fixedCacheKey`, the `originalArgs` property is not able to be shared and will always be `undefined`.
+`fixedCacheKey`를 사용할 경우, `originalArgs` 속성은 공유될 수 없으며 항상 `undefined` 값이 됩니다.
 
 :::
 
@@ -215,7 +214,7 @@ export const PostDetail = () => {
 
 ## Advanced Mutations with Revalidation
 
-In the real world, it's very common that a developer would want to resync their local data cache with the server after performing a mutation (aka "revalidation"). RTK Query takes a more centralized approach to this and requires you to configure the invalidation behavior in your API service definition. See [Advanced Invalidation with abstract tag IDs](./automated-refetching#advanced-invalidation-with-abstract-tag-ids) for details on advanced invalidation handling with RTK Query.
+현실 세계에서는 개발자가 mutation을 실행한 후, 로컬 데이터 캐시를 서버와 동기화 하는 것이 매우 일반적입니다 (aka "revalidation"). RTK 쿼리는 이에 대한 보다 중앙 집중식 접근 방식을 취하며 API 서비스 정의에서 invalidation behavior을 구성해야 합니다. See [Advanced Invalidation with abstract tag IDs](./automated-refetching#advanced-invalidation-with-abstract-tag-ids) for details on advanced invalidation handling with RTK Query.
 
 ### Revalidation Example
 

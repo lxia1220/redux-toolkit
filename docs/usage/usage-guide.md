@@ -25,7 +25,7 @@ Every Redux app needs to configure and create a Redux store. This usually involv
 
 - Importing or creating the root reducer function
 - Setting up middleware, likely including at least one middleware to handle asynchronous logic
-- Configuring the [Redux DevTools Extension](https://github.com/reduxjs/redux-devtools)
+- [Redux DevTools Extension](https://github.com/reduxjs/redux-devtools) 구성
 - Possibly altering some of the logic based on whether the application is being built for development or production
 
 ### Manual Store Setup
@@ -190,7 +190,7 @@ function todosReducer(state = [], action) {
 
 Notice that we specifically call `state.concat()` to return a copied array with the new todo entry, `state.map()` to return a copied array for the toggle case, and use the object spread operator to make a copy of the todo that needs to be updated.
 
-With `createReducer`, we can shorten that example considerably:
+`createReducer`를 사용하면 위의 예제를 상당히 줄일 수 있습니다.:
 
 ```js
 const todosReducer = createReducer([], (builder) => {

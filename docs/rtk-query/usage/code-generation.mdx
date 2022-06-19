@@ -16,17 +16,17 @@ We have early previews of code generation capabilities available as separate too
 
 ## GraphQL
 
-We provide a [Plugin for GraphQL Codegen](https://www.graphql-code-generator.com/docs/plugins/typescript-rtk-query). You can find the documentation to that on the graphql-codegen homepage.
+우리는 [Plugin for GraphQL Codegen](https://www.graphql-code-generator.com/docs/plugins/typescript-rtk-query) 을 제공하며, graphql-codegen 홈페이지에서 이에 대한 문서를 찾을 수 있습니다.
 
-For a full example on how to use it, you can see [this example project](https://github.com/reduxjs/redux-toolkit/tree/master/examples/query/react/graphql-codegen).
+사용 방법에 대한 전체 예제는 [this example project](https://github.com/reduxjs/redux-toolkit/tree/master/examples/query/react/graphql-codegen) 에서 찾을 수 있습니다.
 
 ## OpenAPI
 
-We provide a package for RTK Query code generation from OpenAPI schemas. It is published as `@rtk-query/codegen-openapi` and you can find the source code at [`packages/rtk-query-codegen-openapi`](https://github.com/reduxjs/redux-toolkit/tree/master/packages/rtk-query-codegen-openapi).
+우리는 OpenAPI 스키마에서 RTK Query code를 생성하는 패키지를 제공합니다. 그것은 `@rtk-query/codegen-openapi` 게시되어 있으며 [`packages/rtk-query-codegen-openapi`](https://github.com/reduxjs/redux-toolkit/tree/master/packages/rtk-query-codegen-openapi) 에서 소스코드를 확인할 수 있습니다.
 
 ### Usage
 
-Create an empty api using `createApi` like
+다음과 같이 `createApi`를 사용하여 빈 api를 만듭니다.
 
 ```ts no-transpile title="src/store/emptyApi.ts"
 // Or from '@reduxjs/toolkit/query' if not using the auto-generated hooks
@@ -39,7 +39,7 @@ export const emptySplitApi = createApi({
 })
 ```
 
-Generate a config file (json, js or ts) with contents like
+다음과 같은 내용으로 구성 파일(json, js 또는 ts)을 생성합니다.
 
 ```ts no-transpile title="openapi-config.ts"
 import type { ConfigFile } from '@rtk-query/codegen-openapi'
@@ -56,7 +56,7 @@ const config: ConfigFile = {
 export default config
 ```
 
-and then call the code generator:
+그 뒤, 코드 생성기를 실행합니다:
 
 ```bash
 npx @rtk-query/codegen-openapi openapi-config.ts
@@ -105,7 +105,7 @@ export type EndpointMatcherFunction = (
 
 #### Filtering endpoints
 
-If you only want to include a few endpoints, you can use the `filterEndpoints` config option to filter your endpoints.
+몇 개의 endpoint만 포함하려는 경우 `filterEndpoints` 구성 옵션을 사용하여 endpoint를 필터링할 수 있습니다.
 
 ```ts no-transpile title="openapi-config.ts"
 const filteredConfig: ConfigFile = {
@@ -117,7 +117,7 @@ const filteredConfig: ConfigFile = {
 
 #### Endpoint overrides
 
-If an endpoint is generated as a mutation instead of a query or the other way round, you can override that:
+endpoint가 query 대신 mutation으로 생성되거나 다른 방식으로 생성되어야 하는 경우, 다음과 같이 재정의할 수 있습니다:
 
 ```ts no-transpile title="openapi-config.ts"
 const withOverride: ConfigFile = {

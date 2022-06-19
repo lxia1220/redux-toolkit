@@ -496,9 +496,9 @@ We've addressed this by [repeatedly emphasizing the important of immutability th
 
 ### Architecture and Intent
 
-There's two more reasons why Immer is not optional.
+Immer가 선택 사항이 아닌 두 가지 이유가 더 있습니다.
 
-One is RTK's architecture. `createSlice` and `createReducer` are implemented by directly importing Immer. There's no easy way to create a version of either of them that would have a hypothetical `immer: false` option. You can't do optional imports, and we need Immer available immediately and synchronously during the initial load of the app.
+하나는 RTK의 아키텍처입니다. `createSlice` and `createReducer` are implemented by directly importing Immer. There's no easy way to create a version of either of them that would have a hypothetical `immer: false` option. You can't do optional imports, and we need Immer available immediately and synchronously during the initial load of the app.
 
 Additionally, RTK currently calls [Immer's `enableES5` plugin](https://immerjs.github.io/immer/installation#pick-your-immer-version) immediately on import, in order to ensure that Immer works correctly in environments without ES6 Proxy support (such as IE11 and older React Native versions). This is necessary because Immer split out the ES5 behavior into a plugin around version 6.0, but dropping the ES5 support would have been a major breaking change for RTK and broken our users. Because RTK itself calls `enableES5` from the entry point, Immer is _always_ pulled in.
 

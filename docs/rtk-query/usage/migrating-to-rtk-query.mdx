@@ -12,15 +12,15 @@ description: 'RTK Query > Usage > Migrating to RTKQ: how to convert logic to RTK
 
 :::tip 배울 내용
 
-- How to convert conventional data-fetching logic implemented with Redux Toolkit + `createAsyncThunk` to use Redux Toolkit Query
+- 기존의 Redux Toolkit + `createAsyncThunk` 로 구현된 data-fetching logic을 Redux Toolkit Query를 사용하도록 변환하는 방법
 
 :::
 
 ## Overview
 
-The most common use case for side effects in Redux apps is fetching data. Redux apps typically use a tool like thunks, sagas, or observables to make an AJAX request, and [dispatch actions based on the results of the request](https://redux.js.org/tutorials/fundamentals/part-7-standard-patterns#async-request-status). Reducers then listen for those actions to manage loading state and cache the fetched data.
+Redux app들의 일반적인 side effects 사례는 fetching data 입니다. Redux apps typically use a tool like thunks, sagas, or observables to make an AJAX request, and [dispatch actions based on the results of the request](https://redux.js.org/tutorials/fundamentals/part-7-standard-patterns#async-request-status). Reducers then listen for those actions to manage loading state and cache the fetched data.
 
-RTK Query is purpose-built to solve the use case of data fetching. While it can't replace all of the situations where you'd use thunks or other side effects approaches, **using RTK Query should eliminate the need for most of that hand-written side effects logic**.
+RTK Query는 data fetching을 위해 특별히 제작되었습니다. While it can't replace all of the situations where you'd use thunks or other side effects approaches, **using RTK Query should eliminate the need for most of that hand-written side effects logic**.
 
 RTK Query is expected to cover a lot of overlapping behaviour that users may have previously used `createAsyncThunk` for, including caching purposes, and request lifecycle management (e.g. `isUninitialized`, `isLoading`, `isError` states).
 
@@ -127,7 +127,7 @@ export const pokemonSlice = createSlice({
 
 #### Selectors
 
-Below we have our selectors defined, allowing us to later access the appropriate status & data for any given pokemon name.
+아래의 정의한 selectors를 통해, 주어진 pokemon name에 대한 status & data에 접근이 가능하도록 합니다.
 
 ```ts title="src/services/pokemonSlice.ts - selectors" no-transpile
 // imports, thunk action creator & slice omitted
