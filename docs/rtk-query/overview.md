@@ -32,7 +32,7 @@ RTK Query의 사용법을 배우고 싶다면, Redux core 문서인 ["Redux Esse
 
 Web applications normally need to fetch data from a server in order to display it. They also usually need to make updates to that data, send those updates to the server, and keep the cached data on the client in sync with the data on the server. This is made more complicated by the need to implement other behaviors used in today's applications:
 
-- Tracking loading state in order to show UI spinners
+- 스피너 UI 표시를 위한 로딩 상태 관리
 - 같은 데이터에 대한 중복 요청 제거
 - UI가 더 빠르게 느껴지도록 하기 위한 Optimistic updates
 - Managing cache lifetimes as the user interacts with the UI
@@ -55,7 +55,7 @@ RTK Query takes inspiration from other tools that have pioneered solutions for d
 
 ### APIs
 
-RTK Query is included within the installation of the core Redux Toolkit package. It is available via either of the two entry points below:
+RTK Query는 Redux Toolkit 패키지에 포함되어있습니다. It is available via either of the two entry points below:
 
 ```ts no-transpile
 import { createApi } from '@reduxjs/toolkit/query'
@@ -68,13 +68,13 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 RTK Query 는 다음 API들을 포함하고 있습니다:
 
 - [`createApi()`](./api/createApi.mdx): RTK Query의 기능의 핵심입니다. It allows you to define a set of endpoints describe how to retrieve data from a series of endpoints, including configuration of how to fetch and transform that data. In most cases, you should use this once per app, with "one API slice per base URL" as a rule of thumb.
-- [`fetchBaseQuery()`](./api/fetchBaseQuery.mdx): A small wrapper around [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) that aims to simplify requests. Intended as the recommended `baseQuery` to be used in `createApi` for the majority of users.
+- [`fetchBaseQuery()`](./api/fetchBaseQuery.mdx): 간단한 요청을 위한 [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 의 wrapper입니다. 대부분의 사용자에게 `createApi` 의 `baseQuery` 로 사용하는 것을 권장합니다.
 - [`<ApiProvider />`](./api/ApiProvider.mdx): **Redux store가 없는 경우**  `Provider` 로 사용할 수 있습니다.
 - [`setupListeners()`](./api/setupListeners.mdx): `refetchOnMount` 및 `refetchOnReconnect` 를 사용하기 위해 필요한 유틸리티 입니다.
 
 ### Bundle Size
 
-RTK Query adds a fixed one-time amount to your app's bundle size. Since RTK Query builds on top of Redux Toolkit and React-Redux, the added size varies depending on whether you are already using those in your app. The estimated min+gzip bundle sizes are:
+RTK Query는 고정된 크기를 앱의 번들 사이즈에 추가합니다. Since RTK Query builds on top of Redux Toolkit and React-Redux, the added size varies depending on whether you are already using those in your app. 예상되는 min+gzip 번들 사이즈는:
 
 - 이미 RTK 를 사용중이라면: ~9kb for RTK Query and ~2kb for the hooks.
 - 이미 RTK 를 사용중이지 않다면:
@@ -89,7 +89,7 @@ The functionality included in RTK Query quickly pays for the added bundle size, 
 
 ### Create an API Slice
 
-RTK Query is included within the installation of the core Redux Toolkit package. It is available via either of the two entry points below:
+RTK Query는 Redux Toolkit 패키지에 포함되어있습니다. It is available via either of the two entry points below:
 
 ```ts
 import { createApi } from '@reduxjs/toolkit/query'

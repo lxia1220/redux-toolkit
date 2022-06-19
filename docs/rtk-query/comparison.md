@@ -19,7 +19,7 @@ description: 'RTK Query > Comparison: Compares features and tradeoffs vs other s
 RTK Query를 사용하는 주된 이유로는:
 
 - Redux 어플리케이션을 가지고 있으며, 이에 이미 작성된 Data Fetching 로직을 단순화하고 싶은 경우
-- Redux DevTools를 통해 시간에 따른 state 변화를 보고 싶은 경우
+- Redux DevTools를 통해 state의 history 변화를 보고 싶은 경우
 - You want to be able to integrate the RTK Query behavior with the rest of the Redux ecosystem
 - 어플리케이션 로직이 React 밖에서 동작하고 싶은 경우
 
@@ -39,16 +39,16 @@ RTK 쿼리에는 고려해 볼 만한 가치가 있는 몇 가지 고유한 API 
 
 ### 캐시 정규화 및 중복 제거 미지원
 
-RTK Query deliberately **does _not_ implement a cache that would deduplicate identical items across multiple requests**. There are several reasons for this:
+RTK Query는 **여러 요청에서 동일한 항목에 대한 캐시 중복제거를 의도적으로 구현하지 _않았습니다_**. 그 이유로는 여러가지가 있는데:
 
 - A fully normalized shared-across-queries cache is a _hard_ problem to solve
-- We don't have the time, resources, or interest in trying to solve that right now
+- 저희는 현재 그 문제를 해결하기위한 시간, 자원, 흥미가 충분하지 않습니다
 - In many cases, simply refetching data when it's invalidated works well and is easier to understand
 - At a minimum, RTKQ can help solve the general use case of "fetch some data", which is a big pain point for a lot of people
 
 ### 번들 사이즈
 
-RTK Query adds a fixed one-time amount to your app's bundle size. Since RTK Query builds on top of Redux Toolkit and React-Redux, the added size varies depending on whether you are already using those in your app. The estimated min+gzip bundle sizes are:
+RTK Query는 고정된 크기를 앱의 번들 사이즈에 추가합니다. Since RTK Query builds on top of Redux Toolkit and React-Redux, the added size varies depending on whether you are already using those in your app. 예상되는 min+gzip 번들 사이즈는:
 
 - 이미 RTK 를 사용중이라면: ~9kb for RTK Query and ~2kb for the hooks.
 - 이미 RTK 를 사용중이지 않다면:

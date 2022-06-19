@@ -36,7 +36,7 @@ Redux Toolkit 패키지의 타 부분과 마찬가지로 RTK Query는 TypeScript
 
 The React-specific entry point for RTK Query exports a version of [`createApi`](./api/createApi.mdx) which automatically generates React hooks for each of the defined query & mutation [`endpoints`](./api/createApi.mdx#endpoints).
 
-TypeScript 사용자가 자동 생성된 React Hooks를 사용하기 위해서는 **TS4.1+ 이상의 버전이 필요합니다**.
+TypeScript 사용자가 자동 생성된 React Hooks를 사용하기 위해서는 **TS4.1+ 의 버전이 필요합니다**.
 
 ```ts
 // file: src/services/types.ts noEmit
@@ -129,11 +129,11 @@ export type QueryReturnValue<T = unknown, E = unknown, M = unknown> =
     }
 ```
 
-The `BaseQueryFn` type accepts the following generics:
+`BaseQueryFn` 타입은 다음의 generic들을 가집니다:
 
-- `Args` - The type for the first parameter of the function. The result returned by a [`query`](./api/createApi.mdx#query) property on an endpoint will be passed here.
-- `Result` - The type to be returned in the `data` property for the success case. Unless you expect all queries and mutations to return the same type, it is recommended to keep this typed as `unknown`, and specify the types individually as shown [below](#typing-query-and-mutation-endpoints).
-- `Error` - The type to be returned for the `error` property in the error case. This type also applies to all [`queryFn`](#typing-a-queryfn) functions used in endpoints throughout the API definition.
+- `Args` - 함수의 첫번째 파라미터 타입입니다. The result returned by a [`query`](./api/createApi.mdx#query) property on an endpoint will be passed here.
+- `Result` - success case의 경우에 반환될 `data` 속성의 type 입니다. Unless you expect all queries and mutations to return the same type, it is recommended to keep this typed as `unknown`, and specify the types individually as shown [below](#typing-query-and-mutation-endpoints).
+- `Error` - error case의 경우에 반환될 `error` 속성의 type 입니다. This type also applies to all [`queryFn`](#typing-a-queryfn) functions used in endpoints throughout the API definition.
 - `DefinitionExtraOptions` - The type for the third parameter of the function. The value provided to the [`extraOptions`](./api/createApi.mdx#extraoptions) property on an endpoint will be passed here.
 - `Meta` - the type of the `meta` property that may be returned from calling the `baseQuery`. The `meta` property is accessible as the second argument to [`transformResponse`](./api/createApi.mdx#transformresponse).
 
