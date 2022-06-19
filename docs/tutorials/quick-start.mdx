@@ -11,7 +11,7 @@ hide_title: true
 
 :::tip 배울 내용
 
-- How to set up and use Redux Toolkit with React-Redux
+- React-Redux와 함께 Redux Toolkit을 설정하고 사용하는 방법
 
 :::
 
@@ -19,13 +19,13 @@ hide_title: true
 
 - Familiarity with [ES6 syntax and features](https://www.taniarascia.com/es6-syntax-and-feature-overview/)
 - Knowledge of React terminology: [JSX](https://reactjs.org/docs/introducing-jsx.html), [State](https://reactjs.org/docs/state-and-lifecycle.html), [Function Components, Props](https://reactjs.org/docs/components-and-props.html), and [Hooks](https://reactjs.org/docs/hooks-intro.html)
-- Understanding of [Redux terms and concepts](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow)
+- [Redux 용어 및 개념](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow) 에 대한 이해
 
 :::
 
-## Introduction
+## 소개
 
-Welcome to the Redux Toolkit Quick Start tutorial! **This tutorial will briefly introduce you to Redux Toolkit and teach you how to start using it correctly**.
+Redux Toolkit Quick Start 튜토리얼에 오신 것을 환영합니다! **이 튜토리얼은 Redux Toolkit을 간략하게 소개하고 올바르게 사용하는 방법을 알려줍니다**.
 
 ### How to Read This Tutorial
 
@@ -182,7 +182,7 @@ export type AppDispatch = typeof store.dispatch
 
 ### Use Redux State and Actions in React Components
 
-Now we can use the React-Redux hooks to let React components interact with the Redux store. We can read data from the store with `useSelector`, and dispatch actions using `useDispatch`. Create a `src/features/counter/Counter.js` file with a `<Counter>` component inside, then import that component into `App.js` and render it inside of `<App>`.
+이제 React-Redux hook을 사용하여 React 컴포넌트가 Redux store와 상호 작용하도록 할 수 있습니다. We can read data from the store with `useSelector`, and dispatch actions using `useDispatch`. Create a `src/features/counter/Counter.js` file with a `<Counter>` component inside, then import that component into `App.js` and render it inside of `<App>`.
 
 ```ts title="features/counter/Counter.js"
 // file: features/counter/counterSlice.ts noEmit
@@ -258,31 +258,31 @@ export function Counter() {
 }
 ```
 
-Now, any time you click the "Increment" and "Decrement" buttons:
+이제 "Increment" 및 "Decrement" 버튼을 클릭할 때마다:
 
-- The corresponding Redux action will be dispatched to the store
-- The counter slice reducer will see the actions and update its state
-- The `<Counter>` component will see the new state value from the store and re-render itself with the new data
+- 해당하는 Redux action이 store로 dispatch됩니다
+- counter slice reducer는 actions을 감지하고 state를 업데이트합니다
+- `<Counter>` 컴포넌트는 store의 변경된 상태 값을 보고, 새 데이터를 통해 다시 렌더링합니다
 
 ## What You've Learned
 
 That was a brief overview of how to set up and use Redux Toolkit with React. Recapping the details:
 
-:::tip Summary
+:::tip 요약
 
-- **Create a Redux store with `configureStore`**
+- **`configureStore` 를 통해 Redux store 생성**
   - `configureStore` accepts a `reducer` function as a named argument
   - `configureStore` automatically sets up the store with good default settings
-- **Provide the Redux store to the React application components**
+- **React application components 들에게 Redux store 제공**
   - Put a React-Redux `<Provider>` component around your `<App />`
   - Pass the Redux store as `<Provider store={store}>`
 - **Create a Redux "slice" reducer with `createSlice`**
   - Call `createSlice` with a string name, an initial state, and named reducer functions
   - Reducer functions may "mutate" the state using Immer
   - Export the generated slice reducer and action creators
-- **Use the React-Redux `useSelector/useDispatch` hooks in React components**
-  - Read data from the store with the `useSelector` hook
-  - Get the `dispatch` function with the `useDispatch` hook, and dispatch actions as needed
+- **React components 에서 React-Redux의 `useSelector/useDispatch` hook 사용**
+  - `useSelector` hook을 사용하여 store에서 데이터 읽어오기
+  - `useDispatch` hook을 통해 `dispatch` 함수 가져온 뒤, 필요에 따라 action을 dispatch 하기
 
 :::
 

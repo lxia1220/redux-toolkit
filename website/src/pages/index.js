@@ -182,7 +182,7 @@ function Home() {
               <div className="row">
                 <div className="col">
                   <h2 className={`text--center ${styles.secondTitle}`}>
-                    Other Libraries from the Redux Team
+                    Redux Team의 다른 라이브러리들
                   </h2>
                 </div>
               </div>
