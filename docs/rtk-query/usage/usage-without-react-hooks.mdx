@@ -10,7 +10,7 @@ description: 'RTK Query > Usage > Usage Without React Hooks: Using RTKQ with oth
 
 # Usage Without React Hooks
 
-Like the Redux core and Redux Toolkit, RTK Query's primary functionality is UI-agnostic and can be used with any UI layer. RTK Query also includes a version of [`createApi`](../api/createApi.mdx) designed specifically for use with React, which [automatically generates React hooks](../api/created-api/hooks.mdx).
+Redux core 및 Redux Toolkit과 마찬가지로 RTK Query의 기능은 UI에 구애받지 않으며 모든 UI 계층에서 사용할 수 있습니다. RTK Query also includes a version of [`createApi`](../api/createApi.mdx) designed specifically for use with React, which [automatically generates React hooks](../api/created-api/hooks.mdx).
 
 While React hooks are the primary way that the majority of users are expected to be using RTK Query, the library itself uses plain JS logic and can be used both with React Class components, and independent of React itself.
 
@@ -18,7 +18,7 @@ This page documents how to interact with RTK Query when used without React Hooks
 
 ## Adding a subscription
 
-Cache subscriptions are used to tell RTK Query that it needs to fetch data for an endpoint. A subscription for an endpoint can be added by dispatching the result of the [`initiate`](../api/created-api/endpoints.mdx#initiate) thunk action creator attached to a query endpoint.
+캐시 구독은 엔드포인트에 대한 데이터를 가져와야 한다고 RTK Query에 알리는 데 사용됩니다. A subscription for an endpoint can be added by dispatching the result of the [`initiate`](../api/created-api/endpoints.mdx#initiate) thunk action creator attached to a query endpoint.
 
 With React hooks, this behavior is instead handled within [`useQuery`](../api/created-api/hooks.mdx#usequery), [`useQuerySubscription`](../api/created-api/hooks.mdx#usequerysubscription), [`useLazyQuery`](../api/created-api/hooks.mdx#uselazyquery), and [`useLazyQuerySubscription`](../api/created-api/hooks.mdx#uselazyquerysubscription).
 
@@ -28,7 +28,7 @@ dispatch(api.endpoints.getPosts.initiate())
 
 ## Removing a subscription
 
-Removing a cache subscription is necessary for RTK Query to identify that cached data is no longer required. This allows RTK Query to clean up and remove old cache data.
+RTK Query가 캐시된 데이터가 더 이상 필요하지 않음을 식별하려면 캐시 구독을 제거해야 합니다. 이를 통해 RTK 쿼리는 오래된 캐시 데이터를 정리하고 제거할 수 있습니다.
 
 The result of dispatching the [`initiate`](../api/created-api/endpoints.mdx#initiate) thunk action creator of a query endpoint is an object with an `unsubscribe` property. This property is a function that when called, will remove the corresponding cache subscription.
 
