@@ -28,7 +28,7 @@ See [`useQuery`](../api/created-api/hooks.mdx#usequery) for the hook signature a
 
 Query endpoint는 `createApi`의 `endpoints` 섹션에서 `builder.query()` 메소드를 통해 정의합니다.
 
-Query endpoint는 URL (URL 쿼리 파라미터 포함)을 반환하는 `query` 콜백이나 임의의 비동기 로직을 수행하고 결과를 반환하는 [ `queryFn` callback]을 정의해야 합니다.
+Query endpoint는 URL (URL 쿼리 파라미터 포함)을 반환하는 `query` 콜백이나 임의의 비동기 로직을 수행하고 결과를 반환하는 [`queryFn` 콜백](./customizing-queries.mdx#customizing-queries-with-queryfn) 을 정의해야 합니다.
 
 If the `query` callback needs additional data to generate the URL, it should be written to take a single argument. If you need to pass in multiple parameters, pass them formatted as a single "options object".
 
@@ -54,12 +54,12 @@ const api = createApi({
   endpoints: (build) => ({
     getPost: build.query<Post, number>({
       // highlight-start
-      // note: an optional `queryFn` may be used in place of `query`
+      // note: `queryFn`을 `query`자리에 사용할 수도 있습니다.
       query: (id) => ({ url: `post/${id}` }),
       // Pick out data and prevent nested properties in a hook or selector
       transformResponse: (response: { data: Post }, meta, arg) => response.data,
       providesTags: (result, error, id) => [{ type: 'Post', id }],
-      // The 2nd parameter is the destructured `QueryLifecycleApi`
+      // 2번째 파라미터는 구조분해된 `QueryLifecycleApi`입니다.
       async onQueryStarted(
         arg,
         {
@@ -72,7 +72,7 @@ const api = createApi({
           updateCachedData,
         }
       ) {},
-      // The 2nd parameter is the destructured `QueryCacheLifecycleApi`
+      // 2번째 파라미터는 구조분해된 `QueryCacheLifecycleApi`입니다.
       async onCacheEntryAdded(
         arg,
         {
