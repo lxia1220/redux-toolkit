@@ -11,7 +11,7 @@ hide_title: true
 
 :::tip 배울 내용
 
-- How to set up and use Redux Toolkit and React-Redux with TypeScript
+- TypeScript와 함께 Redux Toolkit 및 React-Redux를 설정하고 사용하는 방법
 
 :::
 
@@ -25,7 +25,7 @@ hide_title: true
 
 ## Introduction
 
-Welcome to the Redux Toolkit TypeScript Quick Start tutorial! **This tutorial will briefly show how to use TypeScript with Redux Toolkit**.
+Redux Toolkit Typescript Quick Start 튜토리얼에 오신 것을 환영합니다! **This tutorial will briefly show how to use TypeScript with Redux Toolkit**.
 
 This page focuses on just how to set up the TypeScript aspects . For explanations of what Redux is, how it works, and full examples of how to use Redux Toolkit, [see the tutorials linked in the "Tutorials Overview" page](./overview.md).
 

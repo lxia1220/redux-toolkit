@@ -22,11 +22,9 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 
 We can't solve every use case, but in the spirit of [`create-react-app`](https://github.com/facebook/create-react-app), we can try to provide some tools that abstract over the setup process and handle the most common use cases, as well as include some useful utilities that will let the user simplify their application code.
 
-Redux Toolkit also includes a powerful data fetching and caching capability that we've dubbed ["RTK Query"](#rtk-query). It's included in the package as a separate set of entry points. It's optional, but can eliminate the need to hand-write data fetching logic yourself.
+Redux Toolkit에는 ["RTK Query"](#rtk-query) 라고 하는 강력한 data fetching 및 caching 기능도 포함되어 있습니다. It's included in the package as a separate set of entry points. 물론 선택사항이지만, 이를 사용하면 더 이상 data fetching logic을 직접 작성할 필요가 없습니다.
 
-**These tools should be beneficial to all Redux users**. Whether you're a brand new Redux user setting up your
-first project, or an experienced user who wants to simplify an existing application, **Redux Toolkit** can help
-you make your Redux code better.
+**이 도구는 모든 Redux 사용자에게 유용해야 합니다**. 첫 번째 프로젝트를 시작하는 새로운 Redux 사용자이든 기존 애플리케이션을 단순화하려는 숙련된 사용자이든 **Redux Toolkit**은 Redux 코드를 개선하는 데 도움이 될 수 있습니다.
 
 ## 설치하기
 
