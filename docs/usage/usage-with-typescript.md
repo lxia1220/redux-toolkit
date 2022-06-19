@@ -19,7 +19,7 @@ hide_title: true
 
 Redux Toolkit은 TypeScript로 작성되었으며 해당 API는 TypeScript 애플리케이션에서 원활하게 사용하도록 설계되었습니다.
 
-This page provides specific details for each of the different APIs included in Redux Toolkit and how to type them correctly with TypeScript.
+이 페이지는 Redux Toolkit에 포함된 다양한 API 각각에 대한 구체적인 세부 정보와 TypeScript를 사용하여 타입을 입력하는 방법을 제공합니다.
 
 **See the [TypeScript Quick Start tutorial page](../tutorials/typescript.md) for a brief overview of how to set up and use Redux Toolkit and React Redux to work with TypeScript**.
 
