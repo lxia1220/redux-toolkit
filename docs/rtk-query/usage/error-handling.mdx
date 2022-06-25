@@ -12,7 +12,7 @@ description: 'RTK Query > Usage > Error Handling: dealing with API errors'
 
 ## Overview
 
-If your query or mutation happens to throw an error when using [fetchBaseQuery](../api/fetchBaseQuery), it will be returned in the `error` property of the respective hook. The component will re-render when that occurs, and you can show appropriate UI based on the error data if desired.
+[fetchBaseQuery](../api/fetchBaseQuery)를 사용할 때 query나 mutation에서 오류가 발생하면 해당 hook의 error 속성에 반환됩니다. 이 경우 구성 요소가 다시 렌더링되며 원하는 경우 오류 데이터를 기반으로 적절한 UI를 표시할 수 있습니다.
 
 ### Error Display Examples
 
@@ -66,13 +66,13 @@ function PostsList() {
 
 ## Errors with a custom `baseQuery`
 
-Whether a response is returned as `data` or `error` is dictated by the `baseQuery` provided.
+응답이 'data' 또는 'error'로 반환되는지의 여부는 제공된 'baseQuery'에 의해 결정됩니다.
 
-Ultimately, you can choose whatever library you prefer to use with your `baseQuery`, but it's important that you return the correct response format. 만약 아직 [`fetchBaseQuery`](../api/fetchBaseQuery) 를 사용해보지 않았다면, 한번 시도 해 보세요! Otherwise, see [Customizing Queries](./customizing-queries) for information on how to alter the returned errors.
+궁극적으로 원하는 라이브러리를 통해 `baseQuery`를 구성할 수 있지만, 올바른 응답 형식을 반환하는 것이 중요합니다. 만약 아직 [`fetchBaseQuery`](../api/fetchBaseQuery) 를 사용해보지 않았다면, 한번 시도 해 보세요! Otherwise, see [Customizing Queries](./customizing-queries) for information on how to alter the returned errors.
 
 ## Handling errors at a macro level
 
-There are quite a few ways that you can manage your errors, and in some cases, you may want to show a generic toast notification for any async error. Being that RTK Query is built on top of Redux and Redux-Toolkit, you can easily add a middleware to your store for this purpose.
+오류를 처리할 수 있는 몇 가지 방법이 있으며, 어떤 경우에는 비동기 오류에 대한 toast notification을 표시하는 것을 원할 수 있습니다. RTK Query는 Redux 및 Redux-Toolkit을 기반으로 하기 때문에 간단하게 store에 미들웨어를 추가하여 이를 처리할 수 있습니다.
 
 :::tip
 

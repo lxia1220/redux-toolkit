@@ -10,7 +10,7 @@ description: 'RTK Query > Usage > Pagination: suggestions for handling paginated
 
 # Pagination
 
-RTK 쿼리에는 Pagination 기능이 포함되어 있지 않습니다. 그러나 RTK Query를 통해 표준 인덱스 기반 pagination API와 쉽게 통합할 수 있습니다. 이것은 구현해야 하는 가장 일반적인 pagination 형식입니다.
+RTK Query에는 Pagination 기능이 포함되어 있지 않습니다. 그러나 RTK Query를 통해 표준 인덱스 기반 pagination API와 쉽게 통합할 수 있습니다. 이것은 구현해야 하는 가장 일반적인 pagination 형식입니다.
 
 ## Pagination Recipes
 
@@ -42,7 +42,7 @@ export const api = createApi({
 export const { useListPostsQuery } = api
 ```
 
-### Trigger the next page by incrementing the `page` state variable
+### `page` state 변수를 증가시켜 다음 페이지를 트리거합니다.
 
 ```tsx title="src/features/posts/PostsManager.tsx"
 const PostList = () => {

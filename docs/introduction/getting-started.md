@@ -1,7 +1,7 @@
 ---
 id: getting-started
-title: Getting Started
-sidebar_label: Getting Started
+title: 시작하기
+sidebar_label: 시작하기
 hide_title: true
 ---
 

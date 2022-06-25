@@ -25,9 +25,9 @@ hide_title: true
 
 ## Introduction
 
-Redux Toolkit Typescript Quick Start 튜토리얼에 오신 것을 환영합니다! **This tutorial will briefly show how to use TypeScript with Redux Toolkit**.
+Redux Toolkit Typescript Quick Start 튜토리얼에 오신 것을 환영합니다! **이 튜토리얼에서는 Redux Toolkit과 함께 TypeScript를 사용하는 방법을 간략하게 보여줍니다**.
 
-This page focuses on just how to set up the TypeScript aspects . For explanations of what Redux is, how it works, and full examples of how to use Redux Toolkit, [see the tutorials linked in the "Tutorials Overview" page](./overview.md).
+이 페이지에서는 TypeScript를 설정하는 방법에 중점을 둡니다. Redux가 무엇인지, 어떻게 작동하는지, Redux Toolkit을 사용하는 방법에 대한 전체 예제는 ["Tutorials Overview" 페이지에 링크된 튜토리얼](./overview.md)을 참조하세요.
 
 Redux Toolkit은 TypeScript로 작성되었으므로 TS type 정의가 내장되어 있습니다.
 

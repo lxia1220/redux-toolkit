@@ -14,15 +14,15 @@ description: 'RTK Query > Usage > Mutations: sending updates to the server'
 
 Mutations은 데이터 업데이트를 서버로 전송하고 변경 사항을 로컬 캐시에 적용하는 데 사용됩니다. Mutations은 캐시된 데이터를 무효화하고 강제로 다시 가져올 수도(force re-fetch) 있습니다.
 
-## Defining Mutation Endpoints
+## Mutation Endpoint 정의하기
 
 Mutation endpoint는 `createApi`의 `endpoints` 섹션에서 `build.mutation()` 메소드를 통해 정의합니다.
 
-Mutation endpoints should define either a `query` callback that constructs the URL (including any URL query params), or [a `queryFn` callback](./customizing-queries.mdx#customizing-queries-with-queryfn) that may do arbitrary async logic and return a result. The `query` callback may also return an object containing the URL, the HTTP method to use and a request body.
+Mutation endpoints는 URL을 구성하는 `query` 콜백 함수 (including any URL query params), 또는 임의의 비동기 로직을 처리하고 결과를 반환해야 한다면 [`queryFn` 콜백 함수](./customizing-queries.mdx#customizing-queries-with-queryfn) 를 정의하고 있어야 합니다. The `query` callback may also return an object containing the URL, the HTTP method to use and a request body.
 
 If the `query` callback needs additional data to generate the URL, it should be written to take a single argument. 여러 매개변수를 전달해야 하는 경우 단일 "옵션 객체" 형식으로 전달하세요.
 
-Mutation endpoints may also modify the response contents before the result is cached, define "tags" to identify cache invalidation, and provide cache entry lifecycle callbacks to run additional logic as cache entries are added and removed.
+Mutation endpoint는 요청에 따른 결과가 캐시되기 전에 응답 내용을 수정할 수 있고, 캐시 무효화를 식별하기 위해 태그를 정의할 수 있으며, 캐시 항목이 추가 및 제거될 때마다 추가 로직을 실행하기 위해서 캐시 라이프사이클 콜백 함수를 제공할 수 있습니다.
 
 ```ts title="Example of all mutation endpoint options"
 // file: types.ts noEmit
@@ -95,7 +95,7 @@ See [`useMutation`](../api/created-api/hooks.mdx#usemutation) for the hook signa
 
 ### Frequently Used Mutation Hook Return Values
 
-The `useMutation` hook returns a tuple containing a "mutation trigger" function, as well as an object containing properties about the "mutation result".
+앞서 말한 대로 `useMutation` hook은 "mutation trigger" 함수와 뮤테이션 결과를 담고 있는 객체인 "mutation result"를 튜플의 형태로 반환합니다.
 
 The "mutation trigger" is a function that when called, will fire off the mutation request for that endpoint. Calling the "mutation trigger" returns a promise with an `unwrap` property, which can be called to unwrap the mutation call and provide the raw response/error. This can be useful if you wish to determine whether the mutation succeeds/fails inline at the call-site.
 
