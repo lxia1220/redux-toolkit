@@ -149,9 +149,9 @@ export const store = configureStore({
 setupListeners(store.dispatch)
 ```
 
-### Use Hooks in Components
+### 컴포넌트에서 hook 사용하기
 
-Finally, import the auto-generated React hooks from the API slice into your component file, and call the hooks in your component with any needed parameters. RTK Query will automatically fetch data on mount, re-fetch when parameters change, provide `{data, isFetching}` values in the result, and re-render the component as those values change:
+최종적으로 API 슬라이스에서 자동 생성된 React hook을 컴포넌트 파일로 가져와 필요한 매개변수를 사용하여 컴포넌트의 hook을 호출합니다. RTK Query는 마운트 시 자동으로 데이터를 가져오고, 매개변수가 변경되면 다시 데이터를 가져오게 되며, 결과에 `{data, isFetching}` 값을 제공하고, 해당 값이 변경되면 컴포넌트를 다시 렌더링합니다:
 
 ```ts
 import * as React from 'react'
@@ -167,10 +167,10 @@ export default function App() {
 }
 ```
 
-## Further Information
+## 추가 정보
 
-See the [**RTK Query Quick Start tutorial**](../tutorials/rtk-query.mdx/) for examples of how to add RTK Query to a project that uses Redux Toolkit, set up an "API slice" with endpoint definitions, and how to use the auto-generated React hooks in your components.
+[**RTK Query Quick Start tutorial**](../tutorials/rtk-query.mdx/) 에서 Redux Toolkit을 사용하는 프로젝트에 RTK Query를 추가하고, 엔드포인트 정의로 "API slice"를 설정하고, 컴포넌트에서 자동 생성된 React hook을 사용하는 방법에 대한 예시를 확인할 수 있습니다.
 
-The [**RTK Query usage guide section**](./usage/queries.mdx) has information on topics like [querying data](./usage/queries.mdx), [using mutations to send updates to the server](./usage/mutations.mdx), [streaming cache updates](./usage/streaming-updates.mdx), and much more.
+[**RTK Query usage guide section**](./usage/queries.mdx) 에는 [querying data](./usage/queries.mdx), [mutation을 통해 서버로 업데이트 요청 전송](./usage/mutations.mdx), [streaming cache updates](./usage/streaming-updates.mdx) 등과 같은 주제에 대한 정보가 있습니다.
 
-The [**Examples page**](./usage/examples.mdx) has runnable CodeSandboxes that demonstrate topics like [making queries with GraphQL](./usage/examples.mdx#react-with-graphql), [authentication](./usage/examples.mdx#authentication), and even [using RTK Query with other UI libraries like Svelte](./usage/examples.mdx#svelte).
+[**예제 페이지**](./usage/examples.mdx)에는 [GraphQL로 쿼리 작성하기](./usage/examples.mdx#react-with-graphql), [authentication](./usage/examples.mdx#authentication), [Svelte와 같은 다른 UI 라이브러리와 함께 RTK Query 사용하기](./usage/examples.mdx#svelte)와 같은 주제를 보여주는 실행 가능한 CodeSandbox가 있습니다.
