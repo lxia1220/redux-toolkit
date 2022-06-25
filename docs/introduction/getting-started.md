@@ -42,7 +42,7 @@ npx create-react-app my-app --template redux-typescript
 
 ### An Existing App
 
-Redux Toolkit is available as a package on NPM for use with a module bundler or in a Node application:
+NPM에서 Redux Toolkit 패키지를 설치하여 모듈 번들러 또는 node 애플리케이션과 함께 사용할 수 있습니다:
 
 ```bash
 # NPM
@@ -56,8 +56,8 @@ or
 yarn add @reduxjs/toolkit
 ```
 
-It is also available as a precompiled UMD package that defines a `window.RTK` global variable.
-The UMD package can be used as a [`<script>` tag](https://unpkg.com/@reduxjs/toolkit/dist/redux-toolkit.umd.js) directly.
+또한 `window.RTK` 전역 변수를 정의하는 미리 컴파일된 UMD 패키지로도 사용할 수 있습니다.
+UMD 패키지는 [`<script>` 태그](https://unpkg.com/@reduxjs/toolkit/dist/redux-toolkit.umd.js) 로 직접 사용할 수 있습니다.
 
 ## What's Included
 
@@ -73,11 +73,11 @@ Redux Toolkit 은 다음 API들을 포함하고 있습니다:
 
 ## RTK Query
 
-[**RTK Query**](../rtk-query/overview.md) is provided as an optional addon within the `@reduxjs/toolkit` package. It is purpose-built to solve the use case of data fetching and caching, supplying a compact, but powerful toolset to define an API interface layer for your app. It is intended to simplify common cases for loading data in a web application, eliminating the need to hand-write data fetching & caching logic yourself.
+[**RTK Query**](../rtk-query/overview.md)는 `@reduxjs/toolkit`의 선택적 애드온으로서 제공됩니다. 이것은 data fetching 및 caching을 위해 특별히 제작되었으며 앱에 대한 API 인터페이스 계층을 정의하기 위한 작지만 강력한 도구 모음을 제공합니다. 이를 통해 웹 애플리케이션에서 데이터를 로드하는 일반적인 경우에 대해 단순화하여 data fetching & caching 로직을 직접 작성할 필요가 없습니다.
 
-RTK Query is built on top of the Redux Toolkit core for its implementation, using [Redux](https://redux.js.org/) internally for its architecture. Although knowledge of Redux and RTK are not required to use RTK Query, you should explore all of the additional global store management capabilities they provide, as well as installing the [Redux DevTools browser extension](https://github.com/reduxjs/redux-devtools), which works flawlessly with RTK Query to traverse and replay a timeline of your request & cache behavior.
+RTK Query는 Redux Toolkit core 위에 구현되어 있으며, 아키텍처 내부적으로 [Redux](https://redux.js.org/) 를 사용합니다. Although knowledge of Redux and RTK are not required to use RTK Query, you should explore all of the additional global store management capabilities they provide, as well as installing the [Redux DevTools browser extension](https://github.com/reduxjs/redux-devtools), which works flawlessly with RTK Query to traverse and replay a timeline of your request & cache behavior.
 
-RTK Query is included within the installation of the core Redux Toolkit package. 아래의 두가지 entry points 중 하나를 통해 사용할 수 있습니다:
+RTK Query는 Redux Toolkit 패키지에 포함되어 있습니다. 아래의 두가지 entry points 중 하나를 통해 사용할 수 있습니다:
 
 ```ts no-transpile
 import { createApi } from '@reduxjs/toolkit/query'
@@ -92,11 +92,11 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 RTK Query 는 다음 API들을 포함하고 있습니다:
 
 - [`createApi()`](../rtk-query/api/createApi.mdx): RTK Query의 기능의 핵심입니다. It allows you to define a set of endpoints describe how to retrieve data from a series of endpoints, including configuration of how to fetch and transform that data. In most cases, you should use this once per app, with "one API slice per base URL" as a rule of thumb.
-- [`fetchBaseQuery()`](../rtk-query/api/fetchBaseQuery.mdx): A small wrapper around [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) that aims to simplify requests. Intended as the recommended `baseQuery` to be used in `createApi` for the majority of users.
+- [`fetchBaseQuery()`](../rtk-query/api/fetchBaseQuery.mdx): 간단한 요청을 위한 [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 의 wrapper입니다. 대부분의 사용자에게 `createApi` 의 `baseQuery` 로 사용하는 것을 권장합니다.
 - [`<ApiProvider />`](../rtk-query/api/ApiProvider.mdx): **Redux store가 없는 경우**  `Provider` 로 사용할 수 있습니다.
 - [`setupListeners()`](../rtk-query/api/setupListeners.mdx): `refetchOnMount` 및 `refetchOnReconnect` 를 사용하기 위해 필요한 유틸리티 입니다.
 
-See the [**RTK Query Overview**](../rtk-query/overview.md) page for more details on what RTK Query is, what problems it solves, and how to use it.
+[**RTK Query 살펴보기**](../rtk-query/overview.md) 페이지를 통해 RTK Query가 무엇인지, 어떤 문제를 해결하는지, 어떻게 사용하는지에 대해 확인할 수 있습니다.
 
 ## Redux 배우기
 

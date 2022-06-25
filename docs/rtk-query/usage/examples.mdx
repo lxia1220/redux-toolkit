@@ -12,13 +12,13 @@ description: 'RTK Query > Usage > Examples: sandboxes with runnable apps'
 
 ## Examples Overview
 
-We have a variety of examples that demonstrate various aspects of using RTK Query.
+RTK Query 사용의 다양한 측면을 보여주는 예시가 몇가지 있습니다.
 
-These examples are not meant to be what you base your application on, but exist to show _very specific_ behaviors that you may not actually want or need in your application. For most users, the basic examples in the [Queries](./queries) and [Mutations](./mutations) sections will cover the majority of your needs.
+이러한 예는 애플리케이션의 기반이 되는 것이 아니라, 애플리케이션에서 실제로 원하지 않거나 필요하지 않을 수 있는 _매우 구체적인_ 동작을 보여주기 위해 존재합니다. 대부분의 사용자는 [Queries](./queries) 및 [Mutations](./mutations) 섹션의 기본 예제를 통해 필요한 대부분의 예시를 확인할 수 있습니다.
 
 :::tip
 
-Please note that when playing with the examples in CodeSandbox that you can experience quirky behavior, especially if you fork them and start editing files. Hot reloading, CSB service workers and [`msw`](https://mswjs.io/) sometimes have trouble getting on the right page -- when that happens, just refresh in the CSB browser pane.
+CodeSandbox에서 예제를 확인할 때, 특히 예제를 fork하고 파일 편집을 시작하는 경우 이상한 동작을 경험할 수 있습니다. 핫 리로딩과 CSB 서비스 작업자 및 [`msw`](https://mswjs.io/) 에 문제가 있을 수 있으며 올바른 페이지로 이동하는 데 문제가 있을 수 있습니다. 이 경우 CSB 브라우저 창에서 새로고침하여 해결 할 수 있습니다.
 
 :::
 
@@ -40,10 +40,10 @@ Please note that when playing with the examples in CodeSandbox that you can expe
 
 ## React Optimistic Updates
 
-In the example below you'll notice a few things. There are two `Posts` list on the sidebar. The top one will only update _after_ a successful mutation and resync with the server. The _subscribed_ one will update immediately due to the optimistic update. In the event of an error, you'll see this get rolled back.
+아래 예에서 몇 가지 사항을 알 수 있습니다. 사이드바에 2개의 `게시물` 목록이 있습니다. 맨 위는 성공적인 mutation를 업데이트 한 _뒤_ 서버와 다시 동기화합니다. _구독 된_ 하나는 optimistic update로 인해 즉시 업데이트됩니다. 진행 도중 오류가 발생하면 이것이 롤백되는 것을 볼 수 있습니다.
 
 :::info
-The example has some intentionally wonky behavior... when editing the name of a post, there is a decent chance you'll get a random error.
+이 예제에는 의도적으로 이상한 동작이 있습니다... 게시물 이름을 편집할 때 임의의 오류가 발생할 가능성이 있습니다.
 :::
 
 <iframe
@@ -98,9 +98,9 @@ RTK Query를 통해 인증을 처리하는 방법에는 여러 가지가 있습�
   sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
 ></iframe>
 
-### Using `extraReducers`
+### `extraReducers` 사용하기
 
-This example uses a matcher from the endpoint and `extraReducers` in the `authSlice`.
+이 예제는 endpoint의 matcher와 `authSlice`의 `extraReducers`를 사용합니다.
 
 <iframe
   src="https://codesandbox.io/embed/github/reduxjs/redux-toolkit/tree/master/examples/query/react/authentication-with-extrareducers?fontsize=12&hidenavigation=1&module=%2Fsrc%2Ffeatures%2Fauth%2FauthSlice.tsx&theme=dark&runonclick=1"
@@ -118,7 +118,7 @@ This example uses a matcher from the endpoint and `extraReducers` in the `authSl
 
 ## React Class Components
 
-Check out the `PostDetail` component for an example of Class Component usage.
+클래스 컴포넌트의 사용 예시는 `PostDetail` 컴포넌트를 확인하세요.
 
 <iframe
   src="https://codesandbox.io/embed/react-class-component-example-48hyq?fontsize=12&hidenavigation=1&theme=dark&runonclick=1"

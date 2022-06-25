@@ -13,11 +13,11 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 
 # Tutorials Overview
 
-**Redux core 문서 사이트인 https://redux.js.org에는 Redux 학습을 위한 기본 튜토리얼과 함께**, Redux Toolkit과 React-Redux를 함께 사용하는 방법이 포함되어 있습니다.
+**Redux core 문서 사이트인 https://redux.js.org 에는 Redux 학습을 위한 기본 튜토리얼과 함께**, Redux Toolkit과 React-Redux를 함께 사용하는 방법이 포함되어 있습니다.
 
 :::tip
 
-To avoid duplicating explanations between the Redux core and Redux Toolkit documentation, we've focused on making the Redux core docs tutorials comprehensive, and point to them instead of having extended tutorials here in the Redux Toolkit docs.
+Redux core와 Redux Toolkit의 문서 간 중복 설명을 피하기 위해 Redux core 문서의 튜토리얼을 포괄적으로 만드는 데 중점을 두었으며, Redux Toolkit 문서에서 내용을 늘리는 대신 이를 가리키도록 하였습니다.
 
 :::
 
@@ -25,11 +25,11 @@ Redux Toolkit을 효과적으로 사용하는 방법을 배우려면 다음의 �
 
 ## Redux Toolkit Quick Starts
 
-The [**Redux Toolkit Quick Start tutorial**](./quick-start.mdx) briefly shows how to add and use Redux Toolkit in a React application.
+[**Redux Toolkit Quick Start tutorial**](./quick-start.mdx) 은 React 애플리케이션에서 Redux Toolkit을 추가하고 사용하는 방법을 간략하게 보여줍니다.
 
-**If you just want the fastest way to get a basic example running, read the Quick Start tutorial.**
+**기본 예시를 빠르게 실행 해 보고 싶다면 Quick Start tutorial을 확인하세요.**
 
-We also have a [**TypeScript Quick Start tutorial**](./typescript.md) that briefly shows how to set up and use TypeScript with Redux Toolkit and React-Redux.
+Redux Toolkit 및 React-Redux와 함께 TypeScript를 설정하고 사용하는 방법을 간략하게 보여주는 [**TypeScript Quick Start tutorial**](./typescript.md)도 있습니다.
 
 ## Redux Essentials: A Real-World Example
 
