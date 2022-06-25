@@ -18,7 +18,7 @@ hide_title: true
 :::info Prerequisites
 
 - Familiarity with [ES6 syntax and features](https://www.taniarascia.com/es6-syntax-and-feature-overview/)
-- Knowledge of React terminology: [JSX](https://reactjs.org/docs/introducing-jsx.html), [State](https://reactjs.org/docs/state-and-lifecycle.html), [Function Components, Props](https://reactjs.org/docs/components-and-props.html), and [Hooks](https://reactjs.org/docs/hooks-intro.html)
+- React 용어에 대한 지식: [JSX](https://reactjs.org/docs/introducing-jsx.html), [State](https://reactjs.org/docs/state-and-lifecycle.html), [Function Components, Props](https://reactjs.org/docs/components-and-props.html), and [Hooks](https://reactjs.org/docs/hooks-intro.html)
 - [Redux 용어 및 개념](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow) 에 대한 이해
 
 :::
@@ -64,9 +64,9 @@ export type AppDispatch = typeof store.dispatch
 
 이것은 Redux store를 생성하며, 개발 중 store를 관측할 수 있도록 하는 Redux DevTools extension을 자동적으로 활성화시킵니다.
 
-### Provide the Redux Store to React
+### React에 Redux Store 제공하기
 
-Once the store is created, we can make it available to our React components by putting a React-Redux `<Provider>` around our application in `src/index.js`. Import the Redux store we just created, put a `<Provider>` around your `<App>`, and pass the store as a prop:
+Store를 생성했다면, `src/index.js`의 애플리케이션을 React-Redux의 `<Provider>`로 감싸 React 컴포넌트에서 사용하도록 할 수 있습니다. 방금 만든 Redux 저장소를 가져오고 `<App>`을 `<Provider>`로 감싼 뒤, store를 prop으로 전달합니다:
 
 ```ts title="index.js"
 // file: App.tsx noEmit
@@ -105,9 +105,9 @@ ReactDOM.render(
 
 `src/features/counter/counterSlice.js` 이름의 파일을 생성합니다. In that file, import the `createSlice` API from Redux Toolkit.
 
-Creating a slice requires a string name to identify the slice, an initial state value, and one or more reducer functions to define how the state can be updated. Once a slice is created, we can export the generated Redux action creators and the reducer function for the whole slice.
+Slice를 생성하려면 slice를 식별하기 위한 문자열 이름, 초기 state 값, state 업데이트 방법을 정의하는 하나 이상의 reducer 함수가 필요합니다. Slice가 생성되면 생성된 Redux 액션 생성자와 전체 슬라이스에 대한 리듀서 기능을 내보낼 수 있습니다.
 
-Redux requires that [we write all state updates immutably, by making copies of data and updating the copies](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow#immutability). However, Redux Toolkit's `createSlice` and `createReducer` APIs use [Immer](https://immerjs.github.io/immer/) inside to allow us to [write "mutating" update logic that becomes correct immutable updates](https://redux.js.org/tutorials/fundamentals/part-8-modern-redux#immutable-updates-with-immer).
+Redux는 [모든 상태 업데이트를 불변으로 하기 위해 데이터 복사본을 만들고 복사본을 업데이트](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow#immutability) 하도록 요구합니다. 그러나 Redux Toolkit의 `createSlice` 및 `createReducer` API는 내부적으로 [Immer](https://immerjs.github.io/immer/) 를 사용하여 "변경" 업데이트 로직이 올바른 불변 업데이트가 되도록 작성할 수 있게 합니다.
 
 ```ts title="features/counter/counterSlice.js"
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
@@ -148,7 +148,7 @@ export default counterSlice.reducer
 
 ### Add Slice Reducers to the Store
 
-Next, we need to import the reducer function from the counter slice and add it to our store. By defining a field inside the `reducer` parameter, we tell the store to use this slice reducer function to handle all updates to that state.
+다음으로 counter 슬라이스에서 reducer 함수를 가져와 스토어에 추가해야 합니다. `reducer` 매개변수 내부에 필드를 정의함으로써, 스토어에 이 슬라이스의 reducer 함수를 사용하여 해당 상태에 대한 모든 업데이트를 처리하도록 합니다.
 
 ```ts title="app/store.js"
 // file: features/counter/counterSlice.ts noEmit
