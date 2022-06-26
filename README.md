@@ -26,7 +26,7 @@ Redux Toolkit의 목적이 Redux를 보다 쉽게 사용하게 해줄 수 있는
   - [x] Using RTK Query
     - [x] Queries - **60%**
     - [x] Mutations - **0%**
-    - [ ] Cache Behavior - **0%**
+    - [x] Cache Behavior - **30%**
     - [ ] Automated Re-fetching - **0%**
     - [ ] Manual Cache Updates - **0%**
     - [x] Conditional Fetching - **100%**
@@ -42,7 +42,7 @@ Redux Toolkit의 목적이 Redux를 보다 쉽게 사용하게 해줄 수 있는
     - [ ] Customizing createApi - **0%**
     - [ ] Customizing Queries - **0%**
     - [ ] Usage Without React Hooks - **0%**
-    - [ ] Migrating to RTK Query - **0%**
+    - [x] Migrating to RTK Query - **10%**
   - [ ] API Reference - **0%**
 
 
