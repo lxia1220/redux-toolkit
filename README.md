@@ -19,7 +19,7 @@ Full-document는 아래 주소에서 확인할 수 있습니다.
 ---
 아래 목차를 통해 번역 비율과 diffsite를 통한 원본과 번역본 비교를 확인할 수 있습니다.
 
-![translate_diff_image](./images/translate_diff.png)
+![translate_diff_image](./images/translate_diff.PNG)
 
 목차의 제목을 누르면 이동되며, PC 환경의 경우 Viewport width를 iPad로 설정하여 보는 것을 권장합니다.
 
