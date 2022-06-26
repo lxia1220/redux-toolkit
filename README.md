@@ -8,7 +8,7 @@ Redux Toolkit은 Redux를 보다 쉽게 사용할 수 있도록 해주는 라이
 
 Redux Toolkit의 목적이 Redux를 보다 쉽고 간결하게 사용하게 해줄 수 있는 라이브러리를 지향하고 있으므로 초보자에게 도움이 되는 문서들 (기본 사용법, 예시 등) 을 우선순위로 두고, 상세한 설명이 요구되는 API Reference와 같은 내용은 후순위로 두었습니다. 진행 중 한글화가 어렵거나, 번역하였을때 의미 전달이 어려운 용어, 그리고 해당 라이브러리에서 사용되는 고유명사의 경우엔 명확한 의미 전달을 위해 원문으로 남겨두었습니다.
 
-## 번역 현황
+## 번역 결과
 
 Full-document는 아래 주소에서 확인할 수 있습니다.
 
@@ -16,10 +16,12 @@ Full-document는 아래 주소에서 확인할 수 있습니다.
 
 [번역](https://lxia1220.github.io/redux-toolkit/) (https://lxia1220.github.io/redux-toolkit/)
 
+---
+아래 목차를 통해 번역 비율과 diffsite를 통한 원본과 번역본 비교를 확인할 수 있습니다.
 
-추가적으로 아래 목차의 제목을 통해 diffsite를 통한 원본과 번역본 비교를 동시에 확인할 수 있습니다.
+![translate_diff_image](./images/translate_diff.png)
 
-PC 환경의 경우 Viewport width를 iPad로 설정하여 보는 것을 권장합니다.
+목차의 제목을 누르면 이동되며, PC 환경의 경우 Viewport width를 iPad로 설정하여 보는 것을 권장합니다.
 
 - [x] Introduction
   - [x] [Getting Started - **90%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Fintroduction%2Fgetting-started&url2=https%3A%2F%2Fredux-toolkit.js.org%2Fintroduction%2Fgetting-started)
