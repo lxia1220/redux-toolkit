@@ -8,11 +8,6 @@ Redux Toolkit은 Redux를 보다 쉽게 사용할 수 있도록 해주는 라이
 
 Redux Toolkit의 목적이 Redux를 보다 쉽고 간결하게 사용하게 해줄 수 있는 라이브러리를 지향하고 있으므로 초보자에게 도움이 되는 문서들 (기본 사용법, 예시 등) 을 우선순위로 두고, 상세한 설명이 요구되는 API Reference와 같은 내용은 후순위로 두었습니다. 진행 중 한글화가 어렵거나, 번역하였을때 의미 전달이 어려운 용어, 그리고 해당 라이브러리에서 사용되는 고유명사의 경우엔 명확한 의미 전달을 위해 원문으로 남겨두었습니다.
 
-
-## 작업 내용
-
-
-
 ## 번역 현황
 
 Full-document는 아래 주소에서 확인할 수 있습니다.
@@ -34,8 +29,8 @@ PC 환경의 경우 Viewport width를 iPad로 설정하여 보는 것을 권장�
   - [x] Typescript Quick Start - **50%**
   - [x] RTK Query Quick Start - **90%**
 - [x] Using Redux Toolkit
-    - [x] Usage Guide - **20%**
-    - [x] Usage With Typescript - **80%**
+    - [x] Usage Guide - **30%**
+    - [x] Usage With Typescript - **30%**
     - [x] Writting Reducers with Immer - **70%**
 - [ ] API Reference - **10%**
 - [x] RTK Query
@@ -55,14 +50,14 @@ PC 환경의 경우 Viewport width를 iPad로 설정하여 보는 것을 권장�
     - [ ] Prefetching - **10%**
     - [x] Polling - **100%**
     - [ ] Streaming Updates - **0%**
-    - [ ] Code Splitting - **0%**
-    - [ ] Code Generation - **0%**
-    - [ ] Server Side Rendering - **0%**
+    - [x] Code Splitting - **100%**
+    - [x] Code Generation - **100%**
+    - [x] Server Side Rendering - **100%**
     - [ ] Persistence and Rehydration - **0%**
     - [ ] Customizing createApi - **0%**
     - [ ] Customizing Queries - **0%**
     - [ ] Usage Without React Hooks - **0%**
-    - [x] Migrating to RTK Query - **10%**
+    - [ ] Migrating to RTK Query - **10%**
   - [ ] API Reference - **0%**
 
 ## 아쉬운점
