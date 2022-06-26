@@ -26,33 +26,33 @@ PC 환경의 경우 Viewport width를 iPad로 설정하여 보는 것을 권장�
 - [x] Tutorials
   - [x] [Tutorials Overview - **100%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Ftutorials%2Foverview&url2=https%3A%2F%2Fredux-toolkit.js.org%2Ftutorials%2Foverview)
   - [x] [Quick Start - **100%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Ftutorials%2Fquick-start&url2=https%3A%2F%2Fredux-toolkit.js.org%2Ftutorials%2Fquick-start)
-  - [x] Typescript Quick Start - **50%**
-  - [x] RTK Query Quick Start - **90%**
+  - [x] [Typescript Quick Start - **50%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Ftutorials%2Ftypescript&url2=https%3A%2F%2Fredux-toolkit.js.org%2Ftutorials%2Ftypescript)
+  - [x] [RTK Query Quick Start - **90%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Ftutorials%2Frtk-query&url2=https%3A%2F%2Fredux-toolkit.js.org%2Ftutorials%2Frtk-query)
 - [x] Using Redux Toolkit
-    - [x] Usage Guide - **30%**
-    - [x] Usage With Typescript - **30%**
-    - [x] Writting Reducers with Immer - **70%**
+    - [x] [Usage Guide - **30%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Fusage%2Fusage-guide&url2=https%3A%2F%2Fredux-toolkit.js.org%2Fusage%2Fusage-guide)
+    - [x] [Usage With Typescript - **30%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Fusage%2Fusage-with-typescript&url2=https%3A%2F%2Fredux-toolkit.js.org%2Fusage%2Fusage-with-typescript)
+    - [x] [Writting Reducers with Immer - **70%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Fusage%2Fimmer-reducers&url2=https%3A%2F%2Fredux-toolkit.js.org%2Fusage%2Fimmer-reducers)
 - [ ] API Reference - **10%**
 - [x] RTK Query
-  - [x] RTK Query Overview - **97%**
-  - [x] Comparision with Other Tools - **70%**
-  - [x] Examples - **100%**
-  - [x] Usage with Typescript - **30%**
+  - [x] [RTK Query Overview - **97%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Frtk-query%2Foverview&url2=https%3A%2F%2Fredux-toolkit.js.org%2Frtk-query%2Foverview)
+  - [x] [Comparision with Other Tools - **70%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Frtk-query%2Fcomparison&url2=https%3A%2F%2Fredux-toolkit.js.org%2Frtk-query%2Fcomparison)
+  - [x] [Examples - **100%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Frtk-query%2Fusage%2Fexamples&url2=https%3A%2F%2Fredux-toolkit.js.org%2Frtk-query%2Fusage%2Fexamples)
+  - [x] [Usage with Typescript - **30%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Frtk-query%2Fusage-with-typescript&url2=https%3A%2F%2Fredux-toolkit.js.org%2Frtk-query%2Fusage-with-typescript)
   - [x] Using RTK Query
-    - [x] Queries - **60%**
-    - [x] Mutations - **0%**
-    - [x] Cache Behavior - **30%**
+    - [x] [Queries - **60%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Frtk-query%2Fusage%2Fqueries&url2=https%3A%2F%2Fredux-toolkit.js.org%2Frtk-query%2Fusage%2Fqueries)
+    - [x] [Mutations - **70%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Frtk-query%2Fusage%2Fmutations&url2=https%3A%2F%2Fredux-toolkit.js.org%2Frtk-query%2Fusage%2Fmutations)
+    - [x] [Cache Behavior - **20%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Frtk-query%2Fusage%2Fcache-behavior&url2=https%3A%2F%2Fredux-toolkit.js.org%2Frtk-query%2Fusage%2Fcache-behavior)
     - [ ] Automated Re-fetching - **0%**
     - [ ] Manual Cache Updates - **0%**
-    - [x] Conditional Fetching - **100%**
-    - [x] Error Handling - **100%**
+    - [x] [Conditional Fetching - **100%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Frtk-query%2Fusage%2Fconditional-fetching&url2=https%3A%2F%2Fredux-toolkit.js.org%2Frtk-query%2Fusage%2Fconditional-fetching)
+    - [x] [Error Handling - **100%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Frtk-query%2Fusage%2Ferror-handling&url2=https%3A%2F%2Fredux-toolkit.js.org%2Frtk-query%2Fusage%2Ferror-handling)
     - [ ] Pagination - **10%**
     - [ ] Prefetching - **10%**
-    - [x] Polling - **100%**
+    - [x] [Polling - **100%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Frtk-query%2Fusage%2Fpolling&url2=https%3A%2F%2Fredux-toolkit.js.org%2Frtk-query%2Fusage%2Fpolling)
     - [ ] Streaming Updates - **0%**
-    - [x] Code Splitting - **100%**
-    - [x] Code Generation - **100%**
-    - [x] Server Side Rendering - **100%**
+    - [x] [Code Splitting - **100%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Frtk-query%2Fusage%2Fcode-splitting&url2=https%3A%2F%2Fredux-toolkit.js.org%2Frtk-query%2Fusage%2Fcode-splitting)
+    - [x] [Code Generation - **100%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Frtk-query%2Fusage%2Fcode-generation&url2=https%3A%2F%2Fredux-toolkit.js.org%2Frtk-query%2Fusage%2Fcode-generation)
+    - [x] [Server Side Rendering - **100%**](https://pianomister.github.io/diffsite/?url1=https%3A%2F%2Flxia1220.github.io%2Fredux-toolkit%2Frtk-query%2Fusage%2Fserver-side-rendering&url2=https%3A%2F%2Fredux-toolkit.js.org%2Frtk-query%2Fusage%2Fserver-side-rendering)
     - [ ] Persistence and Rehydration - **0%**
     - [ ] Customizing createApi - **0%**
     - [ ] Customizing Queries - **0%**
