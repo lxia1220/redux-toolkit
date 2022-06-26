@@ -14,15 +14,15 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 
 ## Purpose
 
-**Redux Toolkit** 패키지는 [Redux](https://redux.js.org) 로직을 작성하기 위한 표준 방식을 위해 만들어졌습니다. It was originally created to help address three common concerns about Redux:
+**Redux Toolkit** 패키지는 [Redux](https://redux.js.org) 로직을 작성하기 위한 표준 방식을 위해 만들어졌습니다. 시작은 Redux에 대한 세 가지 일반적인 문제를 해결하기 위해 만들어졌습니다:
 
 - "Redux store를 구성하는 것은 너무 복잡합니다"
 - "Redux에서 유용한 작업을 수행하기 위해서는 많은 패키지를 추가해야합니다"
 - "Redux는 너무 많은 boilerplate code를 필요로 합니다"
 
-We can't solve every use case, but in the spirit of [`create-react-app`](https://github.com/facebook/create-react-app), we can try to provide some tools that abstract over the setup process and handle the most common use cases, as well as include some useful utilities that will let the user simplify their application code.
+모든 사용 사례를 해결할 수는 없지만, [`create-react-app`](https://github.com/facebook/create-react-app) 정신을 따라 구성 과정을 추상화하고 가장 일반적인 사용 사례를 처리하는 몇 가지 도구를 제공할 수 있을 뿐만 아니라 여러가지 유용한 유틸리티를를 통해 사용자가 애플리케이션 코드를 단순화할 수 있도록 도와줍니다.
 
-Redux Toolkit에는 ["RTK Query"](#rtk-query) 라고 하는 강력한 data fetching 및 caching 기능도 포함되어 있습니다. It's included in the package as a separate set of entry points. 물론 선택사항이지만, 이를 사용하면 더 이상 data fetching logic을 직접 작성할 필요가 없습니다.
+Redux Toolkit에는 ["RTK Query"](#rtk-query) 라고 하는 강력한 data fetching 및 caching 기능도 포함되어 있습니다. 이것은 별도의 진입점으로 패키지에 포함되어 있습니다. 물론 선택사항이지만, 이를 사용하면 더 이상 data fetching logic을 직접 작성할 필요가 없습니다.
 
 **이 도구는 모든 Redux 사용자에게 유용해야 합니다**. 첫 번째 프로젝트를 시작하는 새로운 Redux 사용자이든 기존 애플리케이션을 단순화하려는 숙련된 사용자이든 **Redux Toolkit**은 Redux 코드를 개선하는 데 도움이 될 수 있습니다.
 
@@ -30,7 +30,7 @@ Redux Toolkit에는 ["RTK Query"](#rtk-query) 라고 하는 강력한 data fetch
 
 ### Create React App 사용
 
-The recommended way to start new apps with React and Redux is by using the [official Redux+JS template](https://github.com/reduxjs/cra-template-redux) or [Redux+TS template](https://github.com/reduxjs/cra-template-redux-typescript) for [Create React App](https://github.com/facebook/create-react-app), which takes advantage of **[Redux Toolkit](https://redux-toolkit.js.org/)** and React Redux's integration with React components.
+새롭게 React와 Redux를 사용하여 개발을 시작하는 추천 방법은 [Create React App](https://github.com/facebook/create-react-app) 의 템플릿으로 만들어진 [official Redux+JS template](https://github.com/reduxjs/cra-template-redux) 또는 [Redux+TS template](https://github.com/reduxjs/cra-template-redux-typescript) 를 사용하여 **[Redux Toolkit](https://redux-toolkit.js.org/)** 과 React 컴포넌트와의 React Redux 통합의 이점을 가져가는 것입니다.
 
 ```bash
 # Redux + Plain JS template
