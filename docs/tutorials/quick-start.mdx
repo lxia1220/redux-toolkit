@@ -110,7 +110,8 @@ Slice를 생성하려면 slice를 식별하기 위한 문자열 이름, 초기 s
 Redux는 [모든 상태 업데이트를 불변으로 하기 위해 데이터 복사본을 만들고 복사본을 업데이트](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow#immutability) 하도록 요구합니다. 그러나 Redux Toolkit의 `createSlice` 및 `createReducer` API는 내부적으로 [Immer](https://immerjs.github.io/immer/) 를 사용하여 "변경" 업데이트 로직이 올바른 불변 업데이트가 되도록 작성할 수 있게 합니다.
 
 ```ts title="features/counter/counterSlice.js"
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface CounterState {
   value: number
@@ -228,7 +229,7 @@ ReactDOM.render(
 
 // file: features/counter/Counter.tsx
 import React from 'react'
-import { RootState } from '../../app/store'
+import type { RootState } from '../../app/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment } from './counterSlice'
 

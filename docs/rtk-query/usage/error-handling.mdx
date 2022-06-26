@@ -81,11 +81,8 @@ Redux Toolkit에는 additional custom behaviors에 사용할 수 있는 [action 
 :::
 
 ```ts title="Error catching middleware example"
-import {
-  MiddlewareAPI,
-  isRejectedWithValue,
-  Middleware,
-} from '@reduxjs/toolkit'
+import { isRejectedWithValue } from '@reduxjs/toolkit'
+import type { MiddlewareAPI, Middleware } from '@reduxjs/toolkit'
 import { toast } from 'your-cool-library'
 
 /**
