@@ -9,15 +9,15 @@ hide_title: true
 
 # Usage Guide
 
-The Redux core library is deliberately unopinionated. It lets you decide how you want to handle everything, like store setup, what your state contains, and how you want to build your reducers.
+Redux 핵심 라이브러리는 의도적으로 제시하는 방법이 없습니다. 그에 따라 사용자가 원하는 대로 Store 설정, State에 포함된 내용, Reducer를 구축하는 방법과 같은 모든 것을 처리하는 방법을 결정할 수 있습니다.
 
-This is good in some cases, because it gives you flexibility, but that flexibility isn't always needed. Sometimes we just want the simplest possible way to get started, with some good default behavior out of the box. Or, maybe you're writing a larger application and finding yourself writing some similar code, and you'd like to cut down on how much of that code you have to write by hand.
+이것은 유연성을 제공하기 때문에 어떤 경우에는 좋지만 유연성이 항상 필요한 것은 아닙니다. 때때로 우리는 기본적으로 몇 가지 좋은 기본 방법을 사용하여 가장 간단하게 시작할 수 있는 방법을 원합니다. 또는 더 큰 응용 프로그램을 작성하고 비슷한 코드를 작성하고 있는 자신을 발견하고 손으로 작성해야 하는 해당 코드의 양을 줄이고 싶을 수도 있습니다.
 
-As described in the [Quick Start](../introduction/getting-started.md) page, the goal of Redux Toolkit is to help simplify common Redux use cases. It is not intended to be a complete solution for everything you might want to do with Redux, but it should make a lot of the Redux-related code you need to write a lot simpler (or in some cases, eliminate some of the hand-written code entirely).
+[Quick Start](../introduction/getting-started.md) 페이지에 설명된 대로 Redux Toolkit의 목표는 일반적인 Redux 사용 사례를 단순화하는 것입니다. Redux로 하고자 하는 모든 것에 대한 완전한 솔루션은 아니지만 작성하는 데 필요한 많은 Redux 관련 코드를 훨씬 간단하게 만들 수 있습니다 (어떤 경우에는 직접 작성한 코드의 일부를 완전히 제거할 수 있습니다).
 
-Redux Toolkit exports several individual functions that you can use in your application, and adds dependencies on some other packages that are commonly used with Redux (like Reselect and Redux-Thunk). This lets you decide how to use these in your own application, whether it be a brand new project or updating a large existing app.
+Redux Toolkit은 애플리케이션에서 사용할 수 있는 여러 개별 기능을 제공하고, Redux와 함께 일반적으로 사용되는 다른 패키지(예: Reselect 및 Redux-Thunk)에 대한 종속성을 추가합니다. 이를 통해 새로운 프로젝트이든 대규모 기존 앱 업데이트이든 자신의 애플리케이션에서 이를 사용하는 방법을 결정할 수 있습니다.
 
-Let's look at some of the ways that Redux Toolkit can help make your Redux-related code better.
+Redux Toolkit이 Redux 관련 코드를 개선하는 데 도움이 될 수 있는 몇 가지 방법을 살펴보겠습니다.
 
 ## Store 설정
 
@@ -111,9 +111,9 @@ const store = configureStore({
 export default store
 ```
 
-Note that this only works for one level of reducers. If you want to nest reducers, you'll need to call `combineReducers` yourself to handle the nesting.
+이것은 깊이가 1인 감속기에서만 작동합니다. Reducer를 중첩하려면 `combineReducers`를 직접 호출하여 중첩을 처리해야 합니다.
 
-If you need to customize the store setup, you can pass additional options. Here's what the hot reloading example might look like using Redux Toolkit:
+Store 설정을 사용자 정의해야 하는 경우 추가 옵션을 전달할 수 있습니다. Redux Toolkit을 사용하는 핫 리로딩 예제는 다음과 같습니다:
 
 ```js
 import { configureStore } from '@reduxjs/toolkit'
@@ -139,13 +139,13 @@ export default function configureAppStore(preloadedState) {
 }
 ```
 
-If you provide the `middleware` argument, `configureStore` will only use whatever middleware you've listed.
-If you want to have some custom middleware _and_ the defaults all together, you can use the callback notation,
-call [`getDefaultMiddleware`](../api/getDefaultMiddleware.mdx) and include the results in the `middleware` array you return.
+`middleware` 인수를 제공하면, `configureStore`는 나열한 미들웨어들만 사용합니다.
+사용자 정의 미들웨어 _및_ 기본 미들웨어를 모두 함께 사용하려면 콜백 표기법을 통해 사용할 수 있습니다.
+[`getDefaultMiddleware`](../api/getDefaultMiddleware.mdx) 를 호출하고 반환되는 `middleware` 배열에 원하는 미들웨어를 포함합니다.
 
 ## Writing Reducers
 
-[Reducers](https://redux.js.org/basics/reducers) are the most important Redux concept. A typical reducer function needs to:
+[Reducers](https://redux.js.org/basics/reducers) 는 가장 중요한 Redux 개념입니다. 일반적인 Reducer의 기능은 다음과 같습니다:
 
 - Look at the `type` field of the action object to see how it should respond
 - Update its state immutably, by making copies of the parts of the state that need to change and only modifying those copies
@@ -230,7 +230,7 @@ case "UPDATE_VALUE":
   }
 ```
 
-Can be simplified down to just:
+이는 다음과 같이 단순화할 수 있습니다:
 
 ```js
 updateValue(state, action) {
@@ -239,11 +239,11 @@ updateValue(state, action) {
 }
 ```
 
-Much better!
+훨신 간결합니다!
 
-### Considerations for Using `createReducer`
+### `createReducer` 사용 시의 고려 사항
 
-While the Redux Toolkit `createReducer` function can be really helpful, keep in mind that:
+Redux Toolkit의 `createReducer` 기능이 정말 도움이 될 수 있지만, 다음 사항을 주의해야 합니다:
 
 - The "mutative" code only works correctly inside of our `createReducer` function
 - Immer won't let you mix "mutating" the draft state and also returning a new state value

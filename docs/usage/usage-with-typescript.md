@@ -31,12 +31,12 @@ Redux Toolkit은 TypeScript로 작성되었으며 해당 API는 TypeScript 애�
 
 ## `configureStore`
 
-The basics of using `configureStore` are shown in [TypeScript Quick Start tutorial page](../tutorials/typescript.md). Here are some additional details that you might find useful.
+`configureStore` 의 기본 사용 방법은 [TypeScript 빠른 시작 튜토리얼 페이지](../tutorials/typescript.md) 에 나와 있습니다. 다음은 유용할 수 있는 몇 가지 추가 세부정보입니다.
 
 ### Getting the `State` type
 
-The easiest way of getting the `State` type is to define the root reducer in advance and extract its `ReturnType`.  
-It is recommended to give the type a different name like `RootState` to prevent confusion, as the type name `State` is usually overused.
+`State` 타입을 얻는 가장 쉬운 방법은 root reducer를 미리 정의하고 `ReturnType`을 추출하는 것입니다.
+유형 이름 `State`는 일반적으로 남용되기 때문에, 혼동을 방지하기 위해 유형에 `RootState`와 같은 다른 이름을 지정하는 것이 좋습니다.
 
 ```typescript
 import { combineReducers } from '@reduxjs/toolkit'
@@ -46,7 +46,7 @@ export type RootState = ReturnType<typeof rootReducer>
 // highlight-end
 ```
 
-Alternatively, if you choose to not create a `rootReducer` yourself and instead pass the slice reducers directly to `configureStore()`, you need to slightly modify the typing to correctly infer the root reducer:
+또는 `rootReducer`를 직접 생성하지 않고 대신 slice reducer를 `configureStore()`에 직접 전달하는 경우 루트 리듀서를 올바르게 추론하기 위해 타입을 약간 수정해야 합니다:
 
 ```ts
 import { configureStore } from '@reduxjs/toolkit'
@@ -62,8 +62,8 @@ export type RootState = ReturnType<typeof store.getState>
 export default store
 ```
 
-If you pass the reducers directly to `configureStore()` and do not define the root reducer explicitly, there is no reference to `rootReducer`. 
-Instead, you can refer to `store.getState`, in order to get the `State` type.
+reducer를 `configureStore()`에 직접 전달하고 root reducer를 명시적으로 정의하지 않으면, `rootReducer`에 대한 참조를 확인할 수 없습니다.
+이 대신, `State` 타입을 가져오기 위해 `store.getState`를 참조할 수 있습니다.
 
 ```typescript
 import { configureStore } from '@reduxjs/toolkit'
@@ -77,7 +77,7 @@ export type RootState = ReturnType<typeof store.getState>
 
 ### Getting the `Dispatch` type
 
-If you want to get the `Dispatch` type from your store, you can extract it after creating the store. It is recommended to give the type a different name like `AppDispatch` to prevent confusion, as the type name `Dispatch` is usually overused. You may also find it to be more convenient to export a hook like `useAppDispatch` shown below, then using it wherever you'd call `useDispatch`.
+Store에서 'Dispatch' 유형을 가져오려면, store를 생성한 후 추출할 수 있습니다. 'Dispatch'라는 형식 이름은 일반적으로 남용되기 때문에 혼동을 방지하기 위해 'AppDispatch'와 같은 다른 이름을 지정하는 것이 좋습니다. 또한 아래와 같이 `useAppDispatch`와 같은 hook를 내보낸 다음 `useDispatch`를 호출하는 모든 위치에서 사용하는 것이 더 편리하다는 것을 볼 수 있습니다.
 
 ```typescript
 import { configureStore } from '@reduxjs/toolkit'
@@ -135,7 +135,7 @@ export type AppDispatch = typeof store.dispatch
 export default store
 ```
 
-#### Using `MiddlewareArray` without `getDefaultMiddleware`
+#### `getDefaultMiddleware` 없이 `MiddlewareArray` 사용하기
 
 If you want to skip the usage of `getDefaultMiddleware` altogether, you can still use `MiddlewareArray` for type-safe concatenation of your `middleware` array. This class extends the default JavaScript `Array` type, only with modified typings for `.concat(...)` and the additional `.prepend(...)` method.
 
@@ -169,10 +169,10 @@ For most use cases, there is no need to have a literal definition of `action.typ
 createAction<number>('test')
 ```
 
-This will result in the created action being of type `PayloadActionCreator<number, string>`.
+이것의 결과로는 생성된 action의 타입이 `PayloadActionCreator<number, string>`가 됩니다.
 
-In some setups, you will need a literal type for `action.type`, though.
-Unfortunately, TypeScript type definitions do not allow for a mix of manually-defined and inferred type parameters, so you'll have to specify the `type` both in the Generic definition as well as in the actual JavaScript code:
+일부 설정에서는 `action.type`에 대한 리터럴 타입이 필요합니다.
+불행히도 TypeScript 타입 정의는 수동으로 정의된 타입 매개변수와 유추된 타입 매개변수의 혼합을 허용하지 않으므로, 제너릭 정의와 실제 JavaScript 코드 모두에서 '타입'을 지정해야 합니다:
 
 ```typescript
 createAction<number, 'test'>('test')
@@ -274,7 +274,7 @@ createReducer({ value: 0 }, builder =>
 ## `createSlice`
 
 As `createSlice` creates your actions as well as your reducer for you, you don't have to worry about type safety here.
-Action types can just be provided inline:
+Action type은 인라인으로 제공될 수 있습니다.:
 
 ```typescript
 const slice = createSlice({
@@ -290,7 +290,7 @@ slice.actions.increment(2)
 slice.caseReducers.increment(0, { type: 'increment', payload: 5 })
 ```
 
-If you have too many case reducers and defining them inline would be messy, or you want to reuse case reducers across slices, you can also define them outside the `createSlice` call and type them as `CaseReducer`:
+Case reducer가 너무 많아 인라인으로 정의하는 것이 지저분하거나, Slice 간에 case reducer를 재사용하려는 경우 `createSlice` 호출 외부에서 정의하고 `CaseReducer`로 타입을 선언 할 수도 있습니다:
 
 ```typescript
 type State = number
@@ -308,9 +308,9 @@ createSlice({
 
 ### Defining the Initial State Type
 
-You might have noticed that it is not a good idea to pass your `SliceState` type as a generic to `createSlice`. This is due to the fact that in almost all cases, follow-up generic parameters to `createSlice` need to be inferred, and TypeScript cannot mix explicit declaration and inference of generic types within the same "generic block".
+`SliceState` 유형을 `createSlice`에 제네릭으로 전달하는 것은 좋은 생각이 아님을 알아차렸을 것입니다. 이는 거의 모든 경우에 `createSlice`에 대한 후속 제네릭 매개변수를 유추해야 하고 TypeScript가 동일한 "제네릭 블록" 내에서 제네릭 유형의 명시적 선언과 유추를 혼합할 수 없기 때문입니다.
 
-The standard approach is to declare an interface or type for your state, create an initial state value that uses that type, and pass the initial state value to `createSlice`. You can also use the construct `initialState: myInitialState as SliceState`.
+표준 접근 방식은 state에 대한 인터페이스 또는 타입을 선언하고, 해당 타입을 사용하는 초기 state 값을 생성하고, 초기 state 값을 `createSlice`에 전달하는 것입니다. `initialState: myInitialState as SliceState`와 같이 사용할 수도 있습니다.
 
 ```ts {1,4,8,15}
 type SliceState = { state: 'loading' } | { state: 'finished'; data: string }
@@ -338,7 +338,7 @@ which will result in a `Slice<SliceState, ...>`.
 
 If you want to add a `meta` or `error` property to your action, or customize the `payload` of your action, you have to use the `prepare` notation.
 
-Using this notation with TypeScript looks like this:
+TypeScript와 함께 이 표기법을 사용하면 다음과 같습니다:
 
 ```ts {5-16}
 const blogSlice = createSlice({

@@ -14,36 +14,36 @@ description: 'RTK Query > 사용법 > Server Side Rendering'
 
 RTK Query는 [next-redux-wrapper](https://github.com/kirill-konshin/next-redux-wrapper) 와 [rehydration](./persistence-and-rehydration.mdx) 를 사용하여 [Next.js](https://nextjs.org/) 를 통한 Server Side Rendering(SSR)을 지원합니다.
 
-The workflow is as follows:
+워크플로는 다음과 같습니다:
 
-- Set up `next-redux-wrapper`
-- In `getStaticProps` or `getServerSideProps`:
-  - Pre-fetch all queries via the `initiate` actions, e.g. `store.dispatch(api.endpoints.getPokemonByName.initiate(name))`
-  - Wait for each query to finish using `await Promise.all(api.util.getRunningOperationPromises())`
-- In your `createApi` call, configure rehydration using the `extractRehydrationInfo` option:
+- `next-redux-wrapper` 설정
+- `getStaticProps` 또는 `getServerSideProps` 에서:
+  - 'initiate' action을 통해 모든 쿼리에 대해 pre-fetch를 진행합니다. e.g. `store.dispatch(api.endpoints.getPokemonByName.initiate(name))`
+  - `await Promise.all(api.util.getRunningOperationPromises())` 를 통해 각 query가 완료될 때 까지 기다립니다.
+- `createApi` 호출에서 `extractRehydrationInfo` 옵션을 사용하여 rehydration 을 구성합니다:
 
   [examples](docblock://query/createApi.ts?token=CreateApiOptions.extractRehydrationInfo)
 
 [여기](https://github.com/phryneas/ssr-experiments/tree/main/nextjs-blog) 서 `next.js` 를 사용한 예시 repo를 확인할 수 있습니다.
 
 :::tip
-While memory leaks are not anticipated, once a render is sent to the client and the store is being
-removed from memory, you may wish to also call `store.dispatch(api.util.resetApiState())` to
-ensure that no rogue timers are left running.
+메모리 누수가 예상되지는 않지만, render가 클라이언트에 전송되고 store가 메모리에서 제거되면,
+`store.dispatch(api.util.resetApiState())`를 호출하여
+동작하고 있는 남은 rogue timer가 없도록 명확하게 할 수 있습니다.
 :::
 
 :::tip
-In order to avoid providing stale data with Static Site Generation (SSG), you may wish to set
-[`refetchOnMountOrArgChange`](../api/createApi.mdx#refetchonmountorargchange) to a reasonable value
-such as 900 (seconds) in order to allow data to be re-fetched when accessed if it has been that
-long since the page was generated.
+Static Site Generation (SSG) 에서 오래된 데이터를 제공하는 것을 방지하기 위해,
+페이지가 생성된 지 오래 된 경우 액세스할 때 데이터를 다시 가져올 수 있도록
+[`refetchOnMountOrArgChange`](../api/createApi.mdx#refetchonmountorargchange) 를
+900과 같은 합리적인 값으로 설정할 수 있습니다.
 :::
 
 ## Server Side Rendering elsewhere
 
-If you are not using `next.js`, and the example above cannot be adapted to your SSR framework,
-an `unstable__` marked approach is available to support SSR scenarios where you need to execute
-async code during render and not safely in an effect.
+`next.js`를 사용하지 않고, 위의 예를 SSR 프레임워크에 적용할 수 없는 경우,
+`unstable__`로 표시된 접근 방식을 사용하여 렌더링 중에 비동기 코드를 실행해야 하고
+effect에서 안전하지 않은 SSR 시나리오를 지원할 수 있습니다.
 This is a similar approach to using [`getDataFromTree`](https://www.apollographql.com/docs/react/performance/server-side-rendering/#executing-queries-with-getdatafromtree)
 with [Apollo](https://www.apollographql.com/docs/).
 
