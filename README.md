@@ -48,4 +48,6 @@ Redux Toolkit의 목적이 Redux를 보다 쉽게 사용하게 해줄 수 있는
 
 ## 문서 비교
 
-[원문](https://github.com/reduxjs/redux-toolkit)
+[원문](https://redux-toolkit.js.org/) (https://redux-toolkit.js.org/)
+
+[번역](https://lxia1220.github.io/redux-toolkit/) (https://lxia1220.github.io/redux-toolkit/)
