@@ -103,7 +103,7 @@ React와의 일반적인 사용법은 `createApi`를 가져와서 서버의 기�
 
 ```ts
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Pokemon } from './types'
+import type { Pokemon } from './types'
 
 // Define a service using a base URL and expected endpoints
 export const pokemonApi = createApi({
