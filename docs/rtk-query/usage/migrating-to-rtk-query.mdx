@@ -405,7 +405,7 @@ export type RootState = ReturnType<typeof store.getState>
 
 ### Using our auto-generated hook
 
-At this basic level, the usage of the auto-generated hook is identical to our custom hook! All we need to do is change our import path and we're good to go!
+자동으로 생성된 hook의 사용법은 위의 custom hook과 동일합니다! 해야 할 일은 단지 import 경로를 변경하기만 하면 됩니다!
 
 ```diff title="src/App.tsx"
   import * as React from 'react'
@@ -435,9 +435,9 @@ At this basic level, the usage of the auto-generated hook is identical to our cu
 
 ### Cleaning up unused code
 
-As mentioned previously, our `api` definition has replaced all of the logic that we implemented previously using `createAsyncThunk`, `createSlice`, and our custom hook definition.
+이전에 언급했듯이, 작성한 `api` 정의는 기존의 `createAsyncThunk`, `createSlice` 및 커스텀 hook의 기능을 대체합니다.
 
-Given that we're no longer using that slice any longer, we can remove the import and reducer from our store:
+더 이상 해당 슬라이스를 사용하지 않으므로, store에서 import 및 reducer를 제거할 수 있습니다:
 
 ```diff title="src/store.ts"
   import { configureStore } from '@reduxjs/toolkit'
@@ -456,16 +456,16 @@ Given that we're no longer using that slice any longer, we can remove the import
   export type RootState = ReturnType<typeof store.getState>
 ```
 
-We can also remove the _entire slice and hook files_ completely!
+또한 _모든 slice와 hook 파일_ 을 완전히 삭제할 수 있습니다!
 
 ```diff
 - src/services/pokemonSlice.ts (-51 lines)
 - src/hooks.ts (-34 lines)
 ```
 
-We've now re-implemented the full set of design specifications (and more!) in less than 20 lines of code, with room to easily expand by adding additional endpoints onto our api definition.
+이제 20줄 미만의 코드로 전체 디자인 사양(및 그 이상!)을 다시 구현했으며, api 정의에 엔드포인트를 추가하여 쉽게 확장할 수 있습니다.
 
-A runnable example of our re-factored implementation using RTK Query can be seen below:
+RTK Query를 사용하여 리팩토링된 구현의 실행 가능한 예는 아래에서 볼 수 있습니다:
 
 <iframe
   src="https://codesandbox.io/s/data-fetchingcaching-example-rtk-query-ndmwo?fontsize=12&runonclick=1&hidenavigation=1&module=%2Fsrc%2Fservices/api.ts&theme=dark&view=preview"
