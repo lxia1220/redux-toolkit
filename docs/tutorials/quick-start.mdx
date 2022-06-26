@@ -47,7 +47,7 @@ npm install @reduxjs/toolkit react-redux
 
 ### Redux Store 생성하기
 
-Create a file named `src/app/store.js`. Import the `configureStore` API from Redux Toolkit. We'll start by creating an empty Redux store, and exporting it:
+`src/app/store.js`라는 파일을 만든 뒤, Redux Toolkit에서 `configureStore` API를 가져옵니다. 빈 Redux store를 만들고 내보내는 것으로부터 시작하겠습니다:
 
 ```ts title="app/store.js"
 import { configureStore } from '@reduxjs/toolkit'
@@ -182,7 +182,7 @@ export type AppDispatch = typeof store.dispatch
 
 ### Use Redux State and Actions in React Components
 
-이제 React-Redux hook을 사용하여 React 컴포넌트가 Redux store와 상호 작용하도록 할 수 있습니다. We can read data from the store with `useSelector`, and dispatch actions using `useDispatch`. Create a `src/features/counter/Counter.js` file with a `<Counter>` component inside, then import that component into `App.js` and render it inside of `<App>`.
+이제 React-Redux hook을 사용하여 React 컴포넌트가 Redux store와 상호 작용하도록 할 수 있습니다. 'useSelector'를 사용하여 저장소에서 데이터를 읽고 'useDispatch'를 사용하여 작업을 전달할 수 있습니다. 내부에 `<Counter>` 컴포넌트가 있는 `src/features/counter/Counter.js` 파일을 만든 다음 해당 컴포넌트를 `App.js`로 가져와 `<App>` 내부에서 렌더링합니다.
 
 ```ts title="features/counter/Counter.js"
 // file: features/counter/counterSlice.ts noEmit
@@ -266,20 +266,20 @@ export function Counter() {
 
 ## What You've Learned
 
-That was a brief overview of how to set up and use Redux Toolkit with React. Recapping the details:
+이상 Redux Toolkit을 React와 함께 설정하고 사용하는 방법에 대한 간략한 개요였습니다. 세부 사항 요약:
 
 :::tip 요약
 
 - **`configureStore` 를 통해 Redux store 생성**
   - `configureStore` accepts a `reducer` function as a named argument
-  - `configureStore` automatically sets up the store with good default settings
+  - `configureStore` 는 자동적으로 좋은 기본 설정값을 통해 store를 설정합니다
 - **React application components 들에게 Redux store 제공**
-  - Put a React-Redux `<Provider>` component around your `<App />`
-  - Pass the Redux store as `<Provider store={store}>`
-- **Create a Redux "slice" reducer with `createSlice`**
+  - React-Redux `<Provider>` 로 `<App />` 을 감쌉니다.
+  - `<Provider store={store}>` 와 같이 Redux store를 전달합니다.
+- **`createSlice`로 Redux "slice" reducer 생성**
   - Call `createSlice` with a string name, an initial state, and named reducer functions
-  - Reducer functions may "mutate" the state using Immer
-  - Export the generated slice reducer and action creators
+  - Reducer 함수들은 Immer를 사용하여 상태를 "변경"합니다.
+  - 생성된 slice reducer 및 action creators 들을 내보내 외부에서 사용할 수 있도록 합니다.
 - **React components 에서 React-Redux의 `useSelector/useDispatch` hook 사용**
   - `useSelector` hook을 사용하여 store에서 데이터 읽어오기
   - `useDispatch` hook을 통해 `dispatch` 함수 가져온 뒤, 필요에 따라 action을 dispatch 하기

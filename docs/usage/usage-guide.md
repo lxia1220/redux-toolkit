@@ -19,16 +19,16 @@ Redux Toolkit exports several individual functions that you can use in your appl
 
 Let's look at some of the ways that Redux Toolkit can help make your Redux-related code better.
 
-## Store Setup
+## Store 설정
 
-Every Redux app needs to configure and create a Redux store. This usually involves several steps:
+모든 Redux 앱은 Redux store를 구성하고 생성해야 합니다. 이것은 일반적으로 다음의 단계들이 포함됩니다:
 
-- Importing or creating the root reducer function
+- root reducer 함수 가져오기 또는 만들기
 - Setting up middleware, likely including at least one middleware to handle asynchronous logic
 - [Redux DevTools Extension](https://github.com/reduxjs/redux-devtools) 구성
 - Possibly altering some of the logic based on whether the application is being built for development or production
 
-### Manual Store Setup
+### 수동 Store 설정
 
 The following example from the [Configuring Your Store](https://redux.js.org/recipes/configuring-your-store) page in the Redux docs shows a typical store setup process:
 
@@ -58,24 +58,24 @@ export default function configureStore(preloadedState) {
 }
 ```
 
-This example is readable, but the process isn't always straightforward:
+이 예제는 직관적이지만, 이처럼 프로세스가 항상 직관적지는 않습니다.:
 
 - The basic Redux `createStore` function takes positional arguments: `(rootReducer, preloadedState, enhancer)`. Sometimes it's easy to forget which parameter is which.
 - The process of setting up middleware and enhancers can be confusing, especially if you're trying to add several pieces of configuration.
 - The Redux DevTools Extension docs initially suggest using [some hand-written code that checks the global namespace to see if the extension is available](https://github.com/zalmoxisus/redux-devtools-extension#11-basic-store). Many users copy and paste those snippets, which make the setup code harder to read.
 
-### Simplifying Store Setup with `configureStore`
+### 'configureStore'로 store 설정 간소화
 
 `configureStore` helps with those issues by:
 
 - Having an options object with "named" parameters, which can be easier to read
 - Letting you provide arrays of middleware and enhancers you want to add to the store, and calling `applyMiddleware` and `compose` for you automatically
-- Enabling the Redux DevTools Extension automatically
+- 자동적으로 Redux DevTools Extension을 활성화 합니다.
 
-In addition, `configureStore` adds some middleware by default, each with a specific goal:
+또한, `configureStore`는 기본적으로 각각 특정 기능을 하는 미들웨어들을 추가합니다:
 
-- [`redux-thunk`](https://github.com/reduxjs/redux-thunk) is the most commonly used middleware for working with both synchronous and async logic outside of components
-- In development, middleware that check for common mistakes like mutating the state or using non-serializable values.
+- redux-thunk는 컴포넌트 외부의 동기 및 비동기 논리 작업에 가장 일반적으로 사용되는 미들웨어입니다.
+- 개발 환경에서 상태를 변경하거나 직렬화할 수 없는 값을 사용하는 것과 같은 일반적인 실수를 확인하는 미들웨어를 추가합니다.
 
 This means the store setup code itself is a bit shorter and easier to read, and also that you get good default behavior out of the box.
 

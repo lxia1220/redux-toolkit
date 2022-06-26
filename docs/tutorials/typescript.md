@@ -23,7 +23,7 @@ hide_title: true
 
 :::
 
-## Introduction
+## 소개
 
 Redux Toolkit Typescript Quick Start 튜토리얼에 오신 것을 환영합니다! **이 튜토리얼에서는 Redux Toolkit과 함께 TypeScript를 사용하는 방법을 간략하게 보여줍니다**.
 
@@ -33,11 +33,11 @@ Redux Toolkit은 TypeScript로 작성되었으므로 TS type 정의가 내장되
 
 [React Redux](https://react-redux.js.org) has its type definitions in a separate [`@types/react-redux` typedefs package](https://npm.im/@types/react-redux) on NPM. In addition to typing the library functions, the types also export some helpers to make it easier to write typesafe interfaces between your Redux store and your React components.
 
-As of React Redux v7.2.3, the `react-redux` package has a dependency on `@types/react-redux`, so the type definitions will be automatically installed with the library. Otherwise, you'll need to manually install them yourself (typically `npm install @types/react-redux` ).
+React Redux v7.2.3부터 `react-redux` 패키지는 `@types/react-redux`에 종속되므로 type definition은 라이브러리와 함께 자동으로 설치됩니다. 그렇지 않다면 수동으로 직접 설치해야 합니다(일반적으로 `npm install @types/react-redux` ).
 
-The [Redux+TS template for Create-React-App](https://github.com/reduxjs/cra-template-redux-typescript) comes with a working example of these patterns already configured.
+[Create-React-App용 Redux+TS 템플릿](https://github.com/reduxjs/cra-template-redux-typescript) 은 이미 구성된 이러한 패턴의 작업 예제와 함께 제공됩니다.
 
-## Project Setup
+## 프로젝트 설정
 
 ### Define Root State and Dispatch Types
 
