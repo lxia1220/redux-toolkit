@@ -4,8 +4,8 @@
   <ShortName>Redux Toolkit</ShortName>
   <Description>Search Redux Toolkit</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://redux-toolkit.js.org/img/favicon/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://redux-toolkit.js.org/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://redux-toolkit.js.org/opensearch.xml" />
-  <moz:SearchForm>https://redux-toolkit.js.org/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://redux-toolkit.js.org/redux-toolkit/img/favicon/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://redux-toolkit.js.org/redux-toolkit/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://redux-toolkit.js.org/redux-toolkit/opensearch.xml" />
+  <moz:SearchForm>https://redux-toolkit.js.org/redux-toolkit/</moz:SearchForm>
 </OpenSearchDescription>
