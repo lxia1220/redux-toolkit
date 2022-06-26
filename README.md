@@ -9,14 +9,14 @@ Redux Toolkit의 목적이 Redux를 보다 쉽게 사용하게 해줄 수 있는
 - [x] Introduction
   - [x] Getting Started - **90%**
 - [x] Tutorials
-  - [x] Tutorials Overview - **60%**
-  - [x] Quick Start - **85%**
+  - [x] Tutorials Overview - **100%**
+  - [x] Quick Start - **100%**
   - [x] Typescript Quick Start - **50%**
   - [x] RTK Query Quick Start - **90%**
 - [x] Using Redux Toolkit
-    - [x] Usage Guide - **80%**
+    - [x] Usage Guide - **20%**
     - [x] Usage With Typescript - **80%**
-    - [x] Writting Reducers with Immer - **80%**
+    - [x] Writting Reducers with Immer - **70%**
 - [ ] API Reference - **10%**
 - [x] RTK Query
   - [x] RTK Query Overview - **97%**
