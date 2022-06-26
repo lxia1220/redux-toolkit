@@ -35,7 +35,7 @@ RTK Query의 사용법을 배우고 싶다면, Redux core 문서인 ["Redux Esse
 - 스피너 UI 표시를 위한 로딩 상태 관리
 - 같은 데이터에 대한 중복 요청 제거
 - UI가 더 빠르게 느껴지도록 하기 위한 Optimistic updates
-- Managing cache lifetimes as the user interacts with the UI
+- 사용자가 UI와 상호 작용할 때의 캐시 수명 관리
 
 Redux core는 항상 최소한으로 구성되어 있었으며 - 실제 로직을 어떻게 작성하는지는 개발자에게 달려 있었습니다. That means that Redux has never included anything built in to help solve these use cases. The Redux docs have taught [some common patterns for dispatching actions around the request lifecycle to track loading state and request results](https://redux.js.org/tutorials/fundamentals/part-7-standard-patterns#async-request-status), and [Redux Toolkit's `createAsyncThunk` API](../api/createAsyncThunk.mdx) was designed to abstract that typical pattern. However, users still have to write significant amounts of reducer logic to manage the loading state and the cached data.
 
@@ -45,8 +45,8 @@ RTK Query는 이런 상황에서 해결법을 제시한 다른 도구들(Apollo 
 
 - data fetching과 caching 로직은 Redux Toolkit의 `createSlice`와 `createAsyncThunk` API 위에 구성되어 있습니다.
 - Redux Toolkit은 UI 레이어에 구애받지 않기 때문에, 이의 API를 사용하는 RTK Query또한 모든 UI 레이어에서 사용할 수 있습니다.
-- API endpoints are defined ahead of time, including how to generate query parameters from arguments and transform responses for caching
-- RTK Query can also generate React hooks that encapsulate the entire data fetching process, provide `data` and `isLoading` fields to components, and manage the lifetime of cached data as components mount and unmount
+- API 엔드포인트는 인수에서 쿼리 매개변수를 생성하고 캐싱을 위해 응답을 변환하는 방법을 포함하여 미리 정의됩니다.
+- RTK Query는 또한 전체 data fetching 프로세스를 캡슐화하고, 컴포넌트에 `data` 및 `isLoading` 필드를 제공하며, 컴포넌트가 마운트 및 마운트 해제될 때 캐시된 데이터의 수명을 관리하는 React hook을 생성할 수 있습니다.
 - RTK Query는 초기 데이터를 가져온 후 웹 소켓 메시지를 통한 업데이트가 진행되는 streaming cache updates와 같은 사용 사례를 위해 "cache entry lifecycle" 옵션을 제공합니다.
 - OpenAPI와 GraphQL 스키마에서 API slice를 만드는 code generation 예제를 제공합니다.
 - 마지막으로, RTK Query는 완전히 TypeScript로 작성되었으며 우수한 TS 사용 경험을 제공하도록 설계되었습니다.
@@ -99,9 +99,7 @@ import { createApi } from '@reduxjs/toolkit/query'
 import { createApi } from '@reduxjs/toolkit/query/react'
 ```
 
-For typical usage with React, start by importing `createApi` and defining an "API slice" that lists the server's base URL and which endpoints we want to interact with:
-
-React와 함께 사용하는 일반적인 경우, `createApi`를 import 하여 서버의 기본 URL과 상호 작용 하고자 하는 엔드포인트들에 대한 "API slice"를 정의하는 것으로 시작할 수 있습니다:
+React와의 일반적인 사용법은 `createApi`를 가져와서 서버의 기본 URL과 상호 작용하려는 엔드포인트를 나열하는 "API 슬라이스"를 정의하는 것으로 시작합니다:
 
 ```ts
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'

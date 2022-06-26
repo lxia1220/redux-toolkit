@@ -7,11 +7,11 @@ hide_title: true
 
 &nbsp;
 
-# Writing Reducers with Immer
+# Immer를 통해 Reducer 작성하기
 
-Redux Toolkit's [`createReducer`](../api/createReducer.mdx) and [`createSlice`](../api/createSlice.mdx) automatically use [Immer](https://immerjs.github.io/immer/) internally to let you write simpler immutable update logic using "mutating" syntax. This helps simplify most reducer implementations.
+Redux Toolkit의 [`createReducer`](../api/createReducer.mdx) 및 [`createSlice`](../api/createSlice.mdx) 는 내부적으로 [Immer](https://immerjs.github.io/immer/) 를 자동으로 사용하여 "mutating" 구문을 통한 업데이트 로직을 간단하게 작성할 수 있도록 합니다. 이것은 대부분의 reducer 구현을 단순화하는 데 도움이 됩니다.
 
-Because Immer is itself an abstraction layer, it's important to understand why Redux Toolkit uses Immer, and how to use it correctly.
+Immer 자체는 추상화 계층이기 때문에, Redux Toolkit이 Immer를 사용하는 이유와 올바르게 사용하는 방법을 이해하는 것이 중요합니다.
 
 ## 불변성과 Redux
 
@@ -147,7 +147,7 @@ However, if you're thinking that "writing immutable updates by hand this way loo
 
 [Immer](https://immerjs.github.io/immer/) 는 immutable update logic을 단순화 시켜주는 라이브러리 입니다.
 
-Immer는 두가지 인수인 원본의 `state`와 콜백 함수를 허용하는 `produce` 함수를 제공합니다. The callback function is given a "draft" version of that state, and inside the callback, it is safe to write code that mutates the draft value. Immer tracks all attempts to mutate the draft value and then replays those mutations using their immutable equivalents to create a safe, immutably updated result:
+Immer는 두가지 인수인 원본의 `state`와 콜백 함수를 허용하는 `produce` 함수를 제공합니다. 콜백 함수에는 해당 상태의 "초안" 버전이 제공되며, 콜백 내부에서 초안 값을 변경하는 코드를 작성하는 것이 안전합니다. Immer는 초안 값을 변경하려는 모든 시도를 추적한 다음 변경할 수 없는 등가물을 사용하여 해당 mutation을 실행하여 안전하고 불변적으로 업데이트된 결과를 생성합니다:
 
 ```js
 import produce from 'immer'
@@ -180,7 +180,7 @@ console.log(baseState[1] === nextState[1])
 
 ### Redux Toolkit 과 Immer
 
-Redux Toolkit의 [`createReducer` API](../api/createReducer.mdx) 는 내부에서 자동적으로 Immer을 사용합니다. So, it's already safe to "mutate" state inside of any case reducer function that is passed to `createReducer`:
+Redux Toolkit의 [`createReducer` API](../api/createReducer.mdx) 는 내부에서 자동적으로 Immer을 사용합니다. 따라서 `createReducer`에 전달되는 모든 case reducer 함수 내부에서 상태를 "변경"하는 것은 안전합니다.:
 
 ```js
 const todosReducer = createReducer([], (builder) => {
@@ -191,7 +191,7 @@ const todosReducer = createReducer([], (builder) => {
 })
 ```
 
-In turn, `createSlice` uses `createReducer` inside, so it's also safe to "mutate" state there as well:
+다음으로 `createSlice` 또한 내부적으로 `createReducer`를 사용하므로 상태를 "변경"하는 것은 안전합니다.
 
 ```js
 const todosSlice = createSlice({
@@ -205,7 +205,7 @@ const todosSlice = createSlice({
 })
 ```
 
-This even applies if the case reducer functions are defined outside of the `createSlice/createReducer` call. For example, you could have a reusable case reducer function that expects to "mutate" its state, and include it as needed:
+이는 case reducer 함수가 `createSlice/createReducer` 호출의 외부에서 정의된 경우에도 적용됩니다. 예를 들어, 상태를 "변경"하고 필요에 따라 포함할 것으로 예상하는 재사용 가능한 케이스 case reducer를 선언할 수 있습니다.:
 
 ```js
 const addItemToArray = (state, action) => {
@@ -221,11 +221,11 @@ const todosSlice = createSlice({
 })
 ```
 
-This works because the "mutating" logic is wrapped in Immer's `produce` method internally when it executes.
+이것은 "변경" 로직이 실행될 때 내부적으로 Immer의 `produce` 메소드에 래핑되기 때문에 동작합니다.
 
 :::caution
 
-Remember, **the "mutating" logic _only_ works correctly when wrapped inside of Immer!** Otherwise, that code _will_ really mutate the data.
+**"변경" 로직은 Immer 내부에서 래핑될 때 _만_ 올바르게 작동한다는 것을 기억하세요!** 그렇지 않으면 해당 코드가 실제로 데이터를 _변경할_ 것입니다.
 
 :::
 

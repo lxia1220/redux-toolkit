@@ -104,11 +104,11 @@ Redux를 배우는 데 도움이 되는 다양한 리소스가 있습니다.
 
 ### Redux Essentials Tutorial
 
-The [**Redux Essentials tutorial**](https://redux.js.org/tutorials/essentials/part-1-overview-concepts) is a "top-down" tutorial that teaches "how to use Redux the right way", using our latest recommended APIs and best practices. We recommend starting there.
+[**Redux Essentials tutorial**](https://redux.js.org/tutorials/essentials/part-1-overview-concepts) 은 "Redux를 올바르게 사용하는 방법"을 가르치는 "하향식" 튜토리얼이며, 최신 권장 API 및 모범 사례를 사용합니다. 이 튜토리얼부터 시작하는 것을 추천합니다.
 
 ### Redux Fundamentals Tutorial
 
-The [**Redux Fundamentals tutorial**](https://redux.js.org/tutorials/fundamentals/part-1-overview) is a "bottom-up" tutorial that teaches "how Redux works" from first principles and without any abstractions, and why standard Redux usage patterns exist.
+[**Redux Fundamentals tutorial**](https://redux.js.org/tutorials/fundamentals/part-1-overview) 은 추상화 없이 첫 번째 원칙에서 "Redux가 작동하는 방식"과 표준 Redux 사용 패턴이 존재하는 이유를 가르치는 "상향식" 튜토리얼입니다.
 
 ### Learn Modern Redux Livestream
 
