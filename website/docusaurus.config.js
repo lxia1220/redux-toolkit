@@ -81,11 +81,11 @@ module.exports = {
       items: [
         {
           to: 'introduction/getting-started',
-          label: 'Getting Started',
+          label: '시작하기',
           position: 'right',
         },
-        { to: 'tutorials/overview', label: 'Tutorials', position: 'right' },
-        { to: 'usage/usage-guide', label: 'Usage Guide', position: 'right' },
+        { to: 'tutorials/overview', label: '튜토리얼', position: 'right' },
+        { to: 'usage/usage-guide', label: '사용 가이드', position: 'right' },
         { to: 'api/configureStore', label: 'API', position: 'right' },
         { to: 'rtk-query/overview', label: 'RTK Query', position: 'right' },
         {
@@ -106,15 +106,15 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: 'Getting Started',
+              label: '시작하기',
               to: 'introduction/getting-started',
             },
             {
-              label: 'Tutorials',
+              label: '튜토리얼',
               to: 'tutorials/overview',
             },
             {
-              label: 'Usage Guide',
+              label: '사용 가이드',
               to: 'usage/usage-guide',
             },
             {
@@ -125,7 +125,7 @@ module.exports = {
           ],
         },
         {
-          title: 'Community',
+          title: '커뮤니티',
           items: [
             {
               label: 'Stack Overflow',
@@ -138,7 +138,7 @@ module.exports = {
           ],
         },
         {
-          title: 'More',
+          title: '더보기',
           items: [
             {
               label: 'GitHub',
