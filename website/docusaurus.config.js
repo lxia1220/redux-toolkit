@@ -54,7 +54,7 @@ module.exports = {
     ],
   ],
   projectName: 'redux-toolkit',
-  baseUrl: '/',
+  baseUrl: '/redux-toolkit/',
   favicon: 'img/favicon/favicon.ico',
   tagline:
     'The official, opinionated, batteries-included toolset for efficient Redux development',
